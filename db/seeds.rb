@@ -10,12 +10,12 @@ system 'clear'
 puts "Seed Start"
 
 def separate
-  puts "\n" + "="*100 + "\n" + "\n"
+  puts "\n" + "="*100 + "\n\n"
 end
 
 def record_new(instance)
   if instance.save
-    puts "---#{instance.name} was created!"
+    puts "--- #{instance.name} was created!"
   else
     puts "=========================== Something went wrong =========================="
     puts "=================== #{instance.errors.messages} ==================="
@@ -24,7 +24,7 @@ end
 
 separate
 
-puts "Cleaning database"
+puts "Cleaning database\n\n"
 
 Game.destroy_all
 puts "#{Game.count} games!"
@@ -39,6 +39,7 @@ Session.destroy_all
 puts "#{Session.count} sessions!"
 
 separate
+
 puts "Generating Games:\n\n"
 
 lol = Game.new(
@@ -58,6 +59,26 @@ gta = Game.new(
   photo: "https://s3.gaming-cdn.com/images/products/4211/orig/grand-theft-auto-v-premium-online-edition-cover.jpg"
 )
 record_new(gta)
+
+separate
+
+puts "Generating Users:\n\n"
+
+carlos = User.new(
+  name: "Carlao pinta grossa",
+  nickname: "MIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAU",
+  email: "carlos@romero.com",
+  password: "123123"
+)
+record_new(carlos)
+
+admin = User.new(
+  name: "Diego",
+  nickname: "Sir ChangesALot of the Front End",
+  email: "a@a",
+  password: "thanos"
+)
+record_new(admin)
 
 separate
 
