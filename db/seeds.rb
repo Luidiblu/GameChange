@@ -13,6 +13,15 @@ def separate
   puts "\n" + "="*100 + "\n" + "\n"
 end
 
+def record_new(instance)
+  if instance.save
+    puts "---#{instance.name} was created!"
+  else
+    puts "=========================== Something went wrong =========================="
+    puts "=================== #{instance.errors.messages} ==================="
+  end
+end
+
 separate
 
 puts "Cleaning database"
@@ -30,32 +39,25 @@ Session.destroy_all
 puts "#{Session.count} sessions!"
 
 separate
-
-puts "Generating League of Virginity\n\n"
+puts "Generating Games:\n\n"
 
 lol = Game.new(
   name: "League of Legends",
   photo: "https://logodownload.org/wp-content/uploads/2014/09/lol-logo-league-of-legends.png"
 )
+record_new(lol)
 
-if lol.save
-  puts "---#{lol.name} was created!"
-else
-  puts "=========================== Something went wrong =========================="
-  puts "=================== #{lol.errors.messages} ==================="
-end
-
-lol2 = Game.new(
-  name: "League of Legends",
-  photo: "https://logodownload.org/wp-content/uploads/2014/09/lol-logo-league-of-legends.png"
+mine = Game.new(
+  name: "Minecraft",
+  photo: "https://www.mobygames.com/images/covers/l/489736-minecraft-windows-apps-front-cover.jpg"
 )
+record_new(mine)
 
-if lol2.save
-  puts "---#{lol2.name} was created!"
-else
-  puts "=========================== Something went wrong =========================="
-  puts "=================== #{lol2.errors.messages} ==================="
-end
+gta = Game.new(
+  name: "Grand Theft Auto V",
+  photo: "https://s3.gaming-cdn.com/images/products/4211/orig/grand-theft-auto-v-premium-online-edition-cover.jpg"
+)
+record_new(gta)
 
 separate
 
