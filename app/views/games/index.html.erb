@@ -1,0 +1,15 @@
+<div class="container">
+
+  <% @games.each do |gm| %>
+  <div class="card" style="width: 18rem;">
+    <img class="card-img-top" src="<%= gm.photo %>" alt="Card image cap">
+
+    <div class="card-body">
+      <p class="card-text"><%= gm.name %></p>
+      <p class="card-text"><%# gm.lobbies.limit(3) %></p>
+    </div>
+  </div>
+ <%= link_to "new", new_game_path %>
+  <% end %>
+
+</div>
