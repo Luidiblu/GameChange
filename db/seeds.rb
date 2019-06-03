@@ -60,6 +60,12 @@ gta = Game.new(
 )
 record_new(gta)
 
+ass = Game.new(
+  name: 'Assassins Creed III Remastered for Switch Review',
+  photo: 'https://assets1.ignimgs.com/2019/03/27/ac3remastered-blogroll-1553726660766_160w.jpg?fit=bounds&amp;dpr=1&amp;quality=75&amp;crop=16%3A9&amp;width=300&amp;format=pjpg'
+)
+record_new(ass)
+
 separate
 
 puts "Generating Users:\n\n"
