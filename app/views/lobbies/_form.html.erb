@@ -2,6 +2,7 @@
 
   <div class="forom-inputs">
     <% unless @lobby.persisted? %>
+      <%= f.input :description %>
       <%= f.input :competitive, as: :boolean %>
     <% end %>
 
