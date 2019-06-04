@@ -12,7 +12,12 @@
         <div class="lobbies">
           <ul class="list-group list-group-flush">
             <% @game.lobbies.each do |lobby| %>
-              <li class="list-group-item"><%= lobby %></li>
+              <li class="list-group-item">
+                <div class="d-flex align-items-center justify-content-between w-100">
+                  <p><%= link_to lobby.description, lobby %></p>
+                  <p><%= lobby.sessions.count %></p>
+                </div>
+              </li>
             <% end %>
           </ul>
 
