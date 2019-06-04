@@ -1,15 +1,26 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-1-12">
+    <div class="col-md-12">
 
-      <div class="card" style="width: 18rem;">
+      <div class="card text-center" style="width: 18rem;">
         <div class="card-header">
           <%= @game.name %>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item"><%= @game.photo %></li>
-          <li class="list-group-item"><%= @game.lobbies %></li>
-        </ul>
+        <div class="card-img">
+          <%= image_tag(@game.photo ? @game.photo : "http://suiteapp.com/shopflow-1-03-0/img/no_image_available.jpeg", style: "width: 400px;") %>
+        </div>
+        <div class="lobbies">
+          <ul class="list-group list-group-flush">
+            <% @game.lobbies.each do |lobby| %>
+              <li class="list-group-item"><%= lobby %></li>
+            <% end %>
+          </ul>
+
+          <%= link_to new_game_lobby_path(params[:id]) do %>
+            <i class="fas fa-plus-circle"></i>
+          <% end %>
+
+        </div>
       </div>
 
     </div>
