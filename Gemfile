@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'cloudinary', '~> 1.9.1'
 gem 'carrierwave', '~> 0.11.2'
 
+
 gem 'autoprefixer-rails'
 gem 'font-awesome-sass', '~> 5.6.1'
 gem 'sassc-rails'
