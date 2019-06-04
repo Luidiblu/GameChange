@@ -1,6 +1,10 @@
+.navbar {
+  padding: 0rem 3rem;
+}
+
 .navbar-lewagon {
   justify-content: space-between;
-  background: white;
+  background: #27272B;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +12,44 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 45px;
+}
+
+.navbar-login {
+  user-select: none;
+  white-space: nowrap;
+  margin: 2px;
+  min-width: 80px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  top: 0;
+  line-height: 24px;
+  margin-right: 18px;
+  padding: 11px 42px;
+  border: 1px solid hsla(0,0%,100%,.8);
+  padding: 5px 17px 7px;
+  border-radius: 20px;
+  background-color: transparent;
+  transition: background-color .15s ease-in-out,color .15s ease-in-out;
+}
+
+.navbar-login:hover {
+  text-decoration: none;
+  color: #EBE9E9;
+  border: 1.5px solid hsla(0,0%,100%,.8);
+}
+
+.navbar-hr {
+  display: block;
+  margin-start: auto;
+  margin-end: auto;
+  overflow: hidden;
+  border-style: inset;
+  border-width: 1px;
+  color: #EBE9E9;
+  opacity: 0.1;
+  margin-top: 0rem
 }
