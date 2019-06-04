@@ -28,7 +28,7 @@ ActiveRecord::Schema.define(version: 2019_06_04_200623) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "game_id"
-    t.string "desctiption"
+    t.string "description"
     t.index ["game_id"], name: "index_lobbies_on_game_id"
   end
 

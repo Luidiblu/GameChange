@@ -38,6 +38,6 @@ class LobbiesController < ApplicationController
   end
 
   def lobby_params
-    params.require(:lobby).permit(:competitive, :active)
+    params.require(:lobby).permit(:description, :competitive, :active)
   end
 end
