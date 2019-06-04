@@ -18,15 +18,12 @@ class LobbiesController < ApplicationController
 
     if @lobby.save
 
-      Session.create(
-        lobby: @lobby,
-        user: current_user,
-        accepted: true
-      )
+      Session.create(lobby: @lobby, user: current_user, accepted: true)
 
       redirect_to @game
     else
       # alert.message("Uau")
+
       render :new
     end
   end
@@ -38,6 +35,6 @@ class LobbiesController < ApplicationController
   end
 
   def lobby_params
-    params.require(:lobby).permit(:description, :competitive, :active)
+    params.require(:lobby).permit(:description, :competitive, :active, :max_players)
   end
 end
