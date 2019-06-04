@@ -5,10 +5,10 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :lobbies, except: %i[index]
+  resources :lobbies, except: %i[index new]
 
   resources :games do
-    resources :lobbies, only: %i[index]
+    resources :lobbies, only: %i[index new]
   end
 
 end
