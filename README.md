@@ -13,7 +13,6 @@
     |     |
     |     |
     |     |
-    |     |
    /|##!##|\
   / |##!##| \
  /  |##!##|  \
@@ -30,3 +29,19 @@
        .
        .
 ```
+
+
+
+
+
+## Games
+
+### A Game
+  has_many: lobbies
+
+  CRUD
+
+  * model
+   * id
+   * name
+   * photo
