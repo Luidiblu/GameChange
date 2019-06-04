@@ -6,26 +6,25 @@
         <div class="card-header">
           <%= @game.name %>
         </div>
-        <div class="card-img">
-          <%= image_tag(@game.photo ? @game.photo : "http://suiteapp.com/shopflow-1-03-0/img/no_image_available.jpeg", style: "width: 400px;") %>
-        </div>
-        <div class="lobbies">
-          <ul class="list-group list-group-flush">
-            <% @game.lobbies.each do |lobby| %>
-              <li class="list-group-item">
-                <div class="d-flex align-items-center justify-content-between w-100">
-                  <p><%= link_to lobby.description, lobby %></p>
-                  <p><%= lobby.sessions.count %></p>
-                </div>
-              </li>
-            <% end %>
-          </ul>
+        <%= image_tag(@game.photo ? @game.photo : "http://suiteapp.com/shopflow-1-03-0/img/no_image_available.jpeg", class: "card-img") %>
+      </div>
 
-          <%= link_to new_game_lobby_path(params[:id]) do %>
-            <i class="fas fa-plus-circle"></i>
+      <div class="lobbies">
+        <ul class="list-group list-group-flush">
+          <% @game.lobbies.each do |lobby| %>
+            <li class="list-group-item">
+              <div class="d-flex align-items-center justify-content-between w-100">
+                <p><%= link_to lobby.description, lobby %></p>
+                <p><%= lobby.sessions.count %>/<%= lobby.max_players %></p>
+              </div>
+            </li>
           <% end %>
+        </ul>
 
-        </div>
+        <%= link_to new_game_lobby_path(params[:id]) do %>
+          <i class="fas fa-plus-circle"></i>
+        <% end %>
+
       </div>
 
     </div>

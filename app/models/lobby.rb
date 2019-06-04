@@ -4,4 +4,5 @@ class Lobby < ApplicationRecord
   belongs_to :game
 
   validates :description, presence: true
+  validates :max_players, presence: true
 end

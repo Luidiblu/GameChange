@@ -4,9 +4,9 @@
     <% unless @lobby.persisted? %>
       <%= f.input :description %>
       <%= f.input :competitive, as: :boolean %>
-    <% end %>
 
-    <p><%= Game.game_type_presets %></p>
+      <%= f.input :max_players, collection: Game.game_type_presets.map { |key, value| [key, value] }  %>
+    <% end %>
 
     <%#= f.input %>
   </div>
