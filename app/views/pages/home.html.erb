@@ -1,4 +1,4 @@
 <h1>Pages#home</h1>
 <p>Find me in app/views/pages/home.html.erb</p>
 
-<%= link_to "profile", user_path(current_user[:id]) %>
+<%= link_to "profile", profile_path(current_user) if current_user.present? %>
