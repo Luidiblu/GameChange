@@ -1,5 +1,5 @@
 class LobbiesController < ApplicationController
-  before_action :set_game, only: %i[index new]
+  before_action :set_game, only: %i[index new create]
 
   def index
     @lobbies = Lobby.where(game: @game)
@@ -9,16 +9,24 @@ class LobbiesController < ApplicationController
   end
 
   def new
-    @lobby = Lobby.new(game: @game)
+    @lobby = Lobby.new
   end
 
   def create
     @lobby = Lobby.new(lobby_params)
-    @game = @lobby.game
+    @lobby.game = @game
 
     if @lobby.save
+
+      Session.create(
+        lobby: @lobby,
+        user: current_user,
+        accepted: true
+      )
+
       redirect_to @game
     else
+      # alert.message("Uau")
       render :new
     end
   end
@@ -30,6 +38,6 @@ class LobbiesController < ApplicationController
   end
 
   def lobby_params
-    params.require(:lobby).permit(:game_id, :competitive, :active)
+    params.require(:lobby).permit(:competitive, :active)
   end
 end

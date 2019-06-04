@@ -1,4 +1,4 @@
-<%= simple_form_for @lobby do |f| %>
+<%= simple_form_for [@game, @lobby] do |f| %>
 
   <div class="forom-inputs">
     <% unless @lobby.persisted? %>
