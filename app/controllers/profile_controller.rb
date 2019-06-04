@@ -3,7 +3,6 @@ class ProfileController < ApplicationController
   before_action :set_profile, only: %i[show]
 
   def show
-    @games.select(:user_id == @user)
      # @avatar = @user.avatar.url
 
   end
