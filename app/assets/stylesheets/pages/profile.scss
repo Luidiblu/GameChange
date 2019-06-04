@@ -87,7 +87,7 @@ a .material-icons {
     right: 0;
 }
 
-.profile-page .page-header {
+.page-header {
     height: 380px;
     background-position:center;
 }
@@ -102,7 +102,7 @@ a .material-icons {
     align-items: center;
 }
 
-.header-filter:after, .header-filter:before {
+.header-filter:after {
     position: absolute;
     z-index: 1;
     width: 100%;
