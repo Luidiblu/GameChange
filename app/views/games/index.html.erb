@@ -2,8 +2,8 @@
   <div class="card-row" >
     <% @games.each do |game| %>
       <%= link_to game_path(game) do %>
-      <div class="card-space col-8 p-1">
-          <div class="card p-2">
+      <div class="card-space">
+          <div class="card p-1">
             <%= image_tag(game.photo ? game.photo : "http://suiteapp.com/shopflow-1-03-0/img/no_image_available.jpeg", class: "card-img") %>
             <div class="card-body">
               <p class="card-text"><%= game.name %></p>
@@ -14,9 +14,10 @@
       <% end %>
     <% end %>
   </div>
+  <br>
+  <%= link_to "new", new_game_path, class: "btn btn-primary" %>
 
-  <%= link_to "new", new_game_path %>
 
 </div>
-
+<br>
 <!-- style="width: 80rem;" -->
