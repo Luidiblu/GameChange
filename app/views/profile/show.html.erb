@@ -1,10 +1,9 @@
-<div class="profile-page">
+<!-- <div class="profile-page">
 
   <div class="jarallax ">
-  <div class=" jarallax-img page-header header-filter" style="background-image: url('<%= @user.banner_img %>');"></div>
+  <div class=" jarallax-img page-header header-filter" style="background-image: url('<%= @user.banner_img %>');"></div> -->
   <!-- Background Image Parallax -->
-</div>
-
+<!-- </div> -->
 
   <div class="main main-raised">
     <div class="profile-content">
@@ -13,12 +12,12 @@
           <div class="col-md-6 ml-auto mr-auto">
             <div class="profile">
               <div class="avatar text-center">
-                <%= cl_image_tag(@user.avatar.url, class: "img-raised rounded-circle img-fluid",  gravity: :face) %>
+                <%#= cl_image_tag(@user.avatar.url, class: "img-raised rounded-circle img-fluid",  gravity: :face) %>
               </div>
               <div class="name pt-3">
-                <h3 class="title"><%= @user.name %></h3>
+                <h3 class="title">Nome: <%= @user.name %></h3>
 
-                <h6><%= @user.nickname %></h6>
+                <h6>Nick: <%= @user.nickname %></h6>
 
                 <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble">
                   <%= icon('fas', 'flag') %>
