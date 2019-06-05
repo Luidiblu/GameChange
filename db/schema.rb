@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_05_154751) do
+ActiveRecord::Schema.define(version: 2019_06_05_185021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,7 +39,9 @@ ActiveRecord::Schema.define(version: 2019_06_05_154751) do
     t.bigint "game_id"
     t.string "description"
     t.integer "max_players"
+    t.bigint "user_id"
     t.index ["game_id"], name: "index_lobbies_on_game_id"
+    t.index ["user_id"], name: "index_lobbies_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -48,6 +50,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_154751) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "accepted"
+    t.boolean "active"
     t.index ["lobby_id"], name: "index_sessions_on_lobby_id"
     t.index ["user_id"], name: "index_sessions_on_user_id"
   end
@@ -62,8 +65,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_154751) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "nickname"
-    t.string "profile_pic"
-    t.string "banner_pic"
+    t.string "photo"
     t.string "banner_img"
     t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -73,6 +75,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_154751) do
   add_foreign_key "favorites", "games"
   add_foreign_key "favorites", "users"
   add_foreign_key "lobbies", "games"
+  add_foreign_key "lobbies", "users"
   add_foreign_key "sessions", "lobbies"
   add_foreign_key "sessions", "users"
 end
