@@ -17,7 +17,7 @@
         <ul class="list-group list-group-flush">
           <% @game.lobbies.each do |lobby| %>
             <li class="list-group-item">
-              <div class="d-flex align-items-center justify-content-between w-100", style="<%= lobby.competitive? ? 'background-color: orange' : 'background-color: lightgreen'; %>" >
+              <div class="d-flex align-items-center justify-content-between w-100", style="<%= lobby.sessions.count != lobby.max_players ? (lobby.competitive? ? 'background-color: orange' : 'background-color: lightgreen';) : 'background-color: pink'; %>" >
                 <p><%= link_to lobby.description, lobby_path(lobby) %></p>
                 <p><%= lobby.sessions.count %>/<%= lobby.max_players ? lobby.max_players : "??" %></p>
               </div>
