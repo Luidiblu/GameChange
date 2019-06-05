@@ -1,15 +1,18 @@
 <div class="container">
-
-  <% @games.each do |gm| %>
-  <div class="card" style="width: 18rem;">
-    <img class="card-img-top" src="<%= gm.photo %>" alt="Card image cap">
-
-    <div class="card-body">
-      <p class="card-text"><%= gm.name %></p>
-      <p class="card-text"><%# gm.lobbies.limit(3) %></p>
-    </div>
+  <div class="card-row" style="width: 18rem;">
+    <% @games.each do |game| %>
+      <%= link_to game_path(game) do %>
+        <div class="card">
+          <%= image_tag(game.photo ? game.photo : "http://suiteapp.com/shopflow-1-03-0/img/no_image_available.jpeg", class: "card-img") %>
+          <div class="card-body">
+            <p class="card-text"><%= game.name %></p>
+            <p class="card-text"><% game.lobbies.limit(3) %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
   </div>
- <%= link_to "new", new_game_path %>
-  <% end %>
+
+  <%= link_to "new", new_game_path %>
 
 </div>
