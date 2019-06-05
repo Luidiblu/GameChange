@@ -1,14 +1,14 @@
 <%= simple_form_for [@game, @lobby] do |f| %>
 
   <div class="forom-inputs">
+    <%= f.input :description %>
+
     <% unless @lobby.persisted? %>
-      <%= f.input :description %>
       <%= f.input :competitive, as: :boolean %>
 
       <%= f.input :max_players, collection: Game.game_type_presets.map { |key, value| [key, value] }  %>
     <% end %>
 
-    <%#= f.input %>
   </div>
 
   <div class="form-actions">
