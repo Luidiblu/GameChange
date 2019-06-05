@@ -1,3 +1,49 @@
 body {
   background-color: #27272B;
 }
+
+.btn-group {
+  justify-content: center;
+  justify-space: between;
+}
+
+.landing1-btn{
+  user-select: none;
+  background-color: #fff;
+  white-space: nowrap;
+  margin: 4px;
+  min-width: 280px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  color: #27272B;
+  line-height: 24px;
+  margin-right: 18px;
+  padding: 38px 42px;
+  border: 1px solid hsla(0,0%,100%,.8);
+  padding: 10px 0px 10px;
+  border-radius: 5px;
+  font-weight: medium;
+  // background-color: transparent;
+}
+
+.landing1-btn:hover{
+  user-select: none;
+  background-color: #EBE9E9;
+  white-space: nowrap;
+  margin: 4px;
+  min-width: 280px;
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  text-decoration: none;
+  color: #e6821a  ;
+  line-height: 24px;
+  margin-right: 18px;
+  padding: 38px 42px;
+  border: 1px solid hsla(0,0%,100%,.8);
+  padding: 10px 0px 10px;
+  border-radius: 5px;
+  // background-color: transparent;
+}
