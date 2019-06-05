@@ -1,49 +1,103 @@
 <div class="container">
   <h2>Edit
-    <%= resource_name.to_s.humanize %></h2>
+    <%= resource_name.to_s.humanize %>
+  </h2>
+</div>
 
-  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+<div class="container">
+
+  <%= simple_form_for resource, as: resource_name, url: registration_path(resource_name), html: { method: :put } do |f| %>
   <%= f.error_notification %>
 
-  <div class="form-inputs">
+  <div class="container">
+    <div class="form-actions">
 
-    <div class="card-text">
-      <div class="rounded ">
+      <div class="form-row">
+        <div class="col">
 
-        <%= f.input :avatar, input_html: { class: 'hidden', id: 'photo-input' }, label_html: { class: 'upload-photo'} %>
-        <%= image_tag "", width: 300, class: "rounded hidden mx-auto d-block", id: "photo-preview" %>
-      <% end %>
+          <%= f.input :name, required: true, autofocus: true, input_html: {class: "mb-2 mr-sm-2", autocomplete: "name" }%>
+        </div>
+        <div class="col">
+
+          <%= f.input :nickname, required: true, autofocus: true, prepend: "@", input_html: { class: "mb-2 mr-sm-2", autocomplete: "nickname" } %>
+
+        </div>
       </div>
 
+      <div class="form-row">
+        <div class="col">
+
+          <%= f.input :email, required: true, autofocus: true, prepend: "example-", append: "@gmail.com" %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for:
+              <%= resource.unconfirmed_email %></p>
+          <% end %>
+        </div>
+      </div>
+      <div class="form-row">
+
+        <div class="col">
+          <%= f.input :password, hint: "leave it blank if you don't want to change it", required: false, input_html: { autocomplete: "new-password" } %>
+        </div>
+        <div class="col">
+          <%= f.input :password_confirmation, required: false, input_html: { autocomplete: "new-password" } %>
+
+        </div>
+      </div>
+      <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true, input_html: { autocomplete: "current-password" } %>
     </div>
-    <%= f.input :email, required: true, autofocus: true %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for:
-        <%= resource.unconfirmed_email %></p>
-    <% end %>
+    <div class="container">
 
-    <%= f.input :password, hint: "leave it blank if you don't want to change it", required: false, input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation, required: false, input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password, hint: "we need your current password to confirm your changes", required: true, input_html: { autocomplete: "current-password" } %>
-  </div>
+      <div class="form-row">
+        <div class="form-actions">
 
-  <div class="card-text">
-    <%= f.input :banner_img %>
-    <%= f.input :banner_img_cache, as: :hidden %>
-  </div>
+          <%= f.input :avatar, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-photo'} do %>
+          <%= image_tag "", width: 300, class: "hidden img-circle-rounded", id: "photo-preview" %>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
+        <% end %>
+        <%= f.input :avatar_cache, as: :hidden %>
+      </div>
+    </div>
+
+    <div class="form-row">
+      <div class="form-actions">
+        <%= f.input :banner_img, input_html: { class: 'hidden rounded', id: 'photo-input'}, label_html: { class: 'upload-photo'} do %>
+        <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+      <% end %>
+
+        <%= f.input :banner_img_cache, as: :hidden %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <div class="form-row">
+
+        <div class="col">
+          <%= f.button :submit, "Update", class: "btn btn-primary" %>
+        </div>
+        <div class="col">
+          <p>
+            <%= link_to "Back", :back, class: 'btn btn-primary' %>
+          </p>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 <% end %>
 </div>
+</div>
+<div class="container">
+<div class="container">
 
-<h3>Cancel my account</h3>
+<div class="row">
 
-<p>Unhappy?
-<%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %></p>
-
-<%= link_to "Back", :back %>
-
+  <p>
+    Unhappy?
+    <%= link_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-secondary active' %></p>
+</div>
+</div>
+</div>
 <%= javascript_pack_tag 'photo_preview' %>
