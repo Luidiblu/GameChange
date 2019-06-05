@@ -3,18 +3,15 @@ class ProfileController < ApplicationController
   before_action :set_profile, only: %i[show]
 
   def show
-     # @avatar = @user.avatar.url
-
   end
 
-private
+  private
 
   def set_profile
-      @user = User.find(params[:id])
+    @user = User.find(params[:id])
   end
 
   def profile_params
     params.require(:user).permit(:name, :nickname, :banner_img, :avatar)
   end
-
 end
