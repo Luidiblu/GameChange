@@ -1,5 +1,6 @@
 class Game < ApplicationRecord
   has_many :lobbies
+  has_many :favorites, dependent: :destroy
 
   validates :name, uniqueness: true
 
