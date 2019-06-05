@@ -1,0 +1,29 @@
+/* Cursor */
+.typed-cursor {
+  color: white;
+  font-size: 60px;
+}
+
+/* If fade out option is set */
+.typed-fade-out {
+  color: white;
+}
+
+#typed-text {
+  color: white;
+  font-size: 60px;
+  font-weight: bold;
+
+}
+
+.bannertext {
+  justify-content: center;
+  margin: auto;
+  padding-bottom: 27vh;
+}
+
+.backgroundbanner {
+  background-image: linear-gradient(rgba(20, 8, 10, 0.7), rgba(20, 8,10, 0.7)), url("https://i.imgur.com/hUvjQFg.jpg");
+  background-position: center;
+  padding: 247px 0;
+}
