@@ -1,0 +1,25 @@
+.card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.card-row {
+  padding-top: 15px;
+}
+
+.card-img {
+  height: 315px;
+  width: 210px;
+}
+
+.card-space {
+width: 100%;
+margin: 0 auto;
+}
+
+.card-text {
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+}

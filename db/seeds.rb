@@ -37,7 +37,7 @@ puts "Generating Games:\n\n"
 
 lol = Game.new(
   name: "League of Legends",
-  photo: "https://logodownload.org/wp-content/uploads/2014/09/lol-logo-league-of-legends.png"
+  photo: "https://news-a.akamaihd.net/public/images/misc/GameBox.jpg"
 )
 record_new(lol)
 
@@ -54,8 +54,8 @@ gta = Game.new(
 record_new(gta)
 
 ass = Game.new(
-  name: 'Assassins Creed III Remastered',
-  photo: 'https://assets1.ignimgs.com/2019/03/27/ac3remastered-blogroll-1553726660766_160w.jpg?fit=bounds&amp;dpr=1&amp;quality=75&amp;crop=16%3A9&amp;width=300&amp;format=pjpg'
+  name: 'Assassins Creed III',
+  photo: 'https://http2.mlstatic.com/assassins-creed-iii-remastered-midia-fisica-pc-dvd-D_NQ_NP_998247-MLB29758883631_032019-F.jpg'
 )
 record_new(ass)
 
