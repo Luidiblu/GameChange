@@ -7,7 +7,8 @@ class LobbiesController < ApplicationController
   end
 
   def show
-    @admin = @lobby.user
+    @owner = @lobby.user
+    @enterable = params[:enter] == 'true'
   end
 
   def new

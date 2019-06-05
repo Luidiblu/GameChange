@@ -18,7 +18,8 @@
           <% @game.lobbies.each do |lobby| %>
             <li class="list-group-item">
               <div class="d-flex align-items-center justify-content-between w-100", style="<%= lobby.competitive? ? 'background-color: orange' : 'background-color: lightgreen'; %>" >
-                <p><%= link_to lobby.description, lobby %></p>
+                <% @will_be_entered = lobby.max_players <= lobby.sessions.count %>
+                <p><%= link_to lobby.description, lobby_path(lobby, enter: @will_be_entered) %></p>
                 <p><%= lobby.sessions.count %>/<%= lobby.max_players ? lobby.max_players : "??" %></p>
               </div>
             </li>
