@@ -15,6 +15,11 @@
   width: 55px;
 }
 
+.navbar-lewagon .navbar-brand img:hover {
+  width: 55px;
+  transform: rotateY(180deg);
+}
+
 .navbar-login {
   user-select: none;
   white-space: nowrap;
