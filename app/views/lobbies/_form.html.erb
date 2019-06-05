@@ -1,0 +1,17 @@
+<%= simple_form_for [@game, @lobby] do |f| %>
+
+  <div class="forom-inputs">
+    <% unless @lobby.persisted? %>
+      <%= f.input :description %>
+      <%= f.input :competitive, as: :boolean %>
+
+      <%= f.input :max_players, collection: Game.game_type_presets.map { |key, value| [key, value] }  %>
+    <% end %>
+
+    <%#= f.input %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit, @lobby.persisted? ? "Update Lobby" : "Create your Lobby", class: "btn-primary" %>
+  </div>
+<% end %>
