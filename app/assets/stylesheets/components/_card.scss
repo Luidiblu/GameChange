@@ -1,0 +1,18 @@
+.card-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.card-body {
+margin-top: 10px;
+}
+
+.card-img {
+  width: 50%;
+  height: auto;
+}
+
+.card-space {
+
+}
