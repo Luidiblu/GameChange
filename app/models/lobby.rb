@@ -12,7 +12,7 @@ class Lobby < ApplicationRecord
     # TODO
 
     # membro
-    member = self.users.include? user
+    # member = self.users.include? user
 
     # cheio
     fits_in_lobby = self.max_players > self.sessions.count
@@ -20,6 +20,6 @@ class Lobby < ApplicationRecord
     # ja tem outra sessao
     already_in_session = user.sessions.any?(&:active?)
 
-    return !member && fits_in_lobby && !already_in_session
+    return fits_in_lobby && !already_in_session
   end
 end

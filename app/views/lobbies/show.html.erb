@@ -1,34 +1,36 @@
-<div class="row">
-  <div class="col-3 col-lg-3">
-    <% @lobby.users.each do |user| %>
-      <div class="shadow <%= 'border border-warning' if user == @owner %>">
-        <%= image_tag "https://kitt.lewagon.com/placeholder/users/Luidiblu", class: "avatar" %>
-        <%= user.nickname %>
-      </div>
-    <% end %>
-  </div>
-
-  <div class="col-9 col-lg-6">
-    <div class="shadow">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eveniet quidem eos, esse nemo iure pariatur consequatur minus ex error velit adipisci reprehenderit provident sed. Vel perspiciatis sequi voluptates, minus.
-      <br>
-      =#=#=#=#=#=#=#= BLOCO PARA O CHAT =#=#=#=#=#=#=#=
-      <br>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus facilis voluptatum repellat, fuga quos expedita mollitia natus. Alias voluptas distinctio id rerum eaque iure, esse quidem cumque, velit dolorum incidunt.
-    </div>
-  </div>
-
-  <div class="col-12 col-lg-3">
-    <div class="shadow">
-      <div class="d-flex align-items-center">
-
-        <div class="card w-25">
-          <%= image_tag(@lobby.game.photo, class: "card-img") %>
+<div class="container">
+  <div class="row">
+    <div class="col-3 col-lg-3">
+      <% @lobby.users.each do |user| %>
+        <div class="shadow <%= 'border border-warning' if user == @owner %>">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/Luidiblu", class: "avatar" %>
+          <%= user.nickname %>
         </div>
+      <% end %>
+    </div>
 
-        <div class="shadow text-center w-75">
-          <p><%= @lobby.game.name %></p>
-          <p><%= @lobby.users.count %>/<%= @lobby.max_players ? @lobby.max_players : "??" %></p>
+    <div class="col-9 col-lg-6">
+      <div class="shadow">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eveniet quidem eos, esse nemo iure pariatur consequatur minus ex error velit adipisci reprehenderit provident sed. Vel perspiciatis sequi voluptates, minus.
+        <br>
+        =#=#=#=#=#=#=#= BLOCO PARA O CHAT =#=#=#=#=#=#=#=
+        <br>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus facilis voluptatum repellat, fuga quos expedita mollitia natus. Alias voluptas distinctio id rerum eaque iure, esse quidem cumque, velit dolorum incidunt.
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-3">
+      <div class="shadow">
+        <div class="d-flex align-items-center">
+
+          <div class="card w-25">
+            <%= image_tag(@lobby.game.photo, class: "card-img") %>
+          </div>
+
+          <div class="shadow text-center w-75">
+            <p><%= @lobby.game.name %></p>
+            <p><%= @lobby.users.count %>/<%= @lobby.max_players ? @lobby.max_players : "??" %></p>
+          </div>
         </div>
       </div>
     </div>

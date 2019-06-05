@@ -8,9 +8,18 @@ class LobbiesController < ApplicationController
 
   def show
     @owner = @lobby.user
-    if @lobby.user_allowed?(current_user)
 
-      Session.create(lobby: @lobby, user: current_user, accepted: true)
+    member = @lobby.users.include? current_user
+
+    if @lobby.user_allowed?(current_user) || member
+      unless member
+        Session.create(
+          lobby: @lobby,
+          user: current_user,
+          accepted: true,
+          active: true
+        )
+      end
 
       flash[:notice] = 'Welcome'
     else
@@ -30,7 +39,7 @@ class LobbiesController < ApplicationController
 
     if @lobby.save
 
-      Session.create(lobby: @lobby, user: current_user, accepted: true)
+      Session.create(lobby: @lobby, user: current_user, accepted: true, active: true)
 
       redirect_to @game
     else
