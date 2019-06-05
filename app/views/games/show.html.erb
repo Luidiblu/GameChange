@@ -1,14 +1,32 @@
 <div class="container">
   <div class="row">
-    <div class="col-md-1-12">
+    <div class="col-md-12">
 
-      <div class="card" style="width: 18rem;">
-        <div class="card-header">
-          <%= @game.name %>
+      <div class="d-flex align-items-center justify-content-between">
+        <div class="card text-center" style="width: 18rem;">
+          <div class="card-header">
+            <%= @game.name %>
+          </div>
+          <%= image_tag(@game.photo ? @game.photo : "http://suiteapp.com/shopflow-1-03-0/img/no_image_available.jpeg", class: "card-img") %>
         </div>
+
+        <h5 class="p-2", style="width: 70%;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos recusandae dolorum, animi ullam accusamus odio dolorem autem sit asperiores ducimus delectus velit eveniet? Sapiente animi fuga necessitatibus ratione et corporis?</h5>
+      </div>
+
+      <div class="lobbies mt-3">
         <ul class="list-group list-group-flush">
-          <li class="list-group-item"><%= @game.photo %></li>
-          <li class="list-group-item"><%= @game.lobbies %></li>
+          <% @game.lobbies.each do |lobby| %>
+            <li class="list-group-item">
+              <div class="d-flex align-items-center justify-content-between w-100", style="<%= lobby.competitive? ? 'background-color: orange' : 'background-color: lightgreen'; %>" >
+                <p><%= link_to lobby.description, lobby %></p>
+                <p><%= lobby.sessions.count %>/<%= lobby.max_players ? lobby.max_players : "??" %></p>
+              </div>
+            </li>
+          <% end %>
+
+          <li class="list-group-item text-center"><%= link_to new_game_lobby_path(params[:id]) do %>
+            <i class="fas fa-plus-circle"></i>
+          <% end %></li>
         </ul>
       </div>
 
