@@ -7,6 +7,7 @@ class LobbiesController < ApplicationController
   end
 
   def show
+    @admin = @lobby.user
   end
 
   def new
@@ -16,6 +17,7 @@ class LobbiesController < ApplicationController
   def create
     @lobby = Lobby.new(lobby_params)
     @lobby.game = @game
+    @lobby.user = current_user
 
     if @lobby.save
 
