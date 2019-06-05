@@ -8,7 +8,15 @@ class LobbiesController < ApplicationController
 
   def show
     @owner = @lobby.user
-    @enterable = params[:enter] == 'true'
+    if @lobby.user_allowed?(current_user)
+
+      Session.create(lobby: @lobby, user: current_user, accepted: true)
+
+      flash[:notice] = 'Welcome'
+    else
+      flash[:notice] = 'You cant enter this lobby right now.'
+      redirect_to game_path(@lobby.game)
+    end
   end
 
   def new
