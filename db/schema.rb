@@ -10,10 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_04_214130) do
+ActiveRecord::Schema.define(version: 2019_06_05_154751) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "favorites", force: :cascade do |t|
+    t.bigint "game_id"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["game_id"], name: "index_favorites_on_game_id"
+    t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
 
   create_table "games", force: :cascade do |t|
     t.string "name"
@@ -53,13 +62,16 @@ ActiveRecord::Schema.define(version: 2019_06_04_214130) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "nickname"
-    t.string "photo"
+    t.string "profile_pic"
+    t.string "banner_pic"
     t.string "banner_img"
     t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "favorites", "games"
+  add_foreign_key "favorites", "users"
   add_foreign_key "lobbies", "games"
   add_foreign_key "sessions", "lobbies"
   add_foreign_key "sessions", "users"
