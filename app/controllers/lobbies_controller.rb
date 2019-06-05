@@ -1,5 +1,6 @@
 class LobbiesController < ApplicationController
   before_action :set_game, only: %i[index new create]
+  before_action :set_lobby, only: %i[show]
 
   def index
     @lobbies = Lobby.where(game: @game)
@@ -32,6 +33,10 @@ class LobbiesController < ApplicationController
 
   def set_game
     @game = Game.find(params[:game_id])
+  end
+
+  def set_lobby
+    @lobby = Lobby.find(params[:id])
   end
 
   def lobby_params
