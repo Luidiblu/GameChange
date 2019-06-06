@@ -6,12 +6,12 @@
     </div>
     <div class="d-flex btn-group">
       <% if user_signed_in? %>
-      <%= link_to "Browse Games", new_user_registration_path, class: "landing1-btn" %>
+      <%= link_to "Browse Games", games_path, class: "landing1-btn" %>
       <%= link_to "Your Profile", new_user_registration_path, class: "landing1-btn" %>
 
       <% else %>
 
-      <%= link_to "Browse Games", new_user_registration_path, class: "landing1-btn" %>
+      <%= link_to "Browse Games", new_user_session_path, class: "landing1-btn" %>
       <%= link_to "Sign Up", new_user_registration_path, class: "landing1-btn" %>
       <% end %>
     </div>
