@@ -1,0 +1,27 @@
+.game_banner_show {
+  background-size: cover;
+  background-position: center;
+}
+
+.game_banner_show img {
+  border-radius: 10px;
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  object-position: relative;
+
+}
+ .game_banner_show {
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 180px 0px;
+ }
+
+.game_banner_show h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
