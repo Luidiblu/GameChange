@@ -1,4 +1,4 @@
-<div class="game_banner_show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path(@game.photo ? @game.photo.url : "https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png") %>)" >
+<div class="game_banner_show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path(@game.photo ? @game.photo : "https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png") %>)" >
   <div class="container">
     <h1> <%= @game.name %> </h1>
   </div>
