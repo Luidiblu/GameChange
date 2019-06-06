@@ -5,9 +5,6 @@
         <div class="logintitle">
           <h2>Sign Up</h2>
         </div>
-        <div class="aligntextcenter">
-        Areadly have a account? <%= render "devise/shared/links" %>
-        </div>
         <hr>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
@@ -36,6 +33,9 @@
 
         <div class="form-actions aligntextcenter">
           <%= f.button :submit, "Sign up", class: "btn-gamechanger" %>
+        </div>
+        <div class="aligntextcenter">
+        Areadly have a account? <%= render "devise/shared/links" %>
         </div>
       <% end %>
       </div>
