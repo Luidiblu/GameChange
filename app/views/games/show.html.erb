@@ -1,11 +1,9 @@
-<div class="game_banner_show">
+<div class="game_banner_show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path(@game.photo ? @game.photo.url : "https://img.ibxk.com.br/2018/07/17/17114524702062.jpg") %>)" >
   <div class="container">
-    <%= image_tag(@game.photo ? @game.photo : "https://img.ibxk.com.br/2018/07/17/17114524702062.jpg") %>
-    <div class="gamename">
-      <%= @game.name %>
-    </div>
+    <h1> <%= @game.name %> </h1>
   </div>
 </div>
+
 <div class="container">
       <div class="lobbies mt-3">
         <ul class="list-group list-group-flush">
