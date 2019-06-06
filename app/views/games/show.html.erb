@@ -1,26 +1,40 @@
 <div class="game_banner_show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path(@game.photo ? @game.photo : "https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png") %>)" >
   <div class="container">
     <h1> <%= @game.name %> </h1>
+    <%= link_to new_game_lobby_path(params[:id]) do %>
+      <i class="fas fa-plus-circle"></i>
+    <% end %>
+  </div>
+</div>
+<div class="container">
+  <div class="lobbyamount">
+    <h3 class="lobbyavaliable mb-4 mt-3"><%= @game.lobbies.select{ |l| l.max_players > l.sessions.count }.count %> Lobbies Avaliables.</h3>
+  </div>
+  <% @game.lobbies.each do |lobby| %>
+  <li class="list-style-none">
+    <%= link_to lobby_path(lobby) do %>
+    <div class="d-flex lobby-card-1 align-items-center justify-content-between w-100">
+      <div class="d-flex lobby-name-holder">
+        <p class="lobby-name"><%= lobby.user.nickname %></p>
+      </div>
+        <p class="lobby-name"><%= lobby.description %></p>
+        <div class="lobbymode">
+          <%=  %>
+        </div>
+      <div class="d-flex lobby-info-holder align-items-center">
+        <p class="lobby-players "><%= lobby.sessions.count %>/<%= lobby.max_players ? lobby.max_players : "?" %></p>
+        <i class="fas fa-user-alt"></i>
+      </div>
+    </div>
+    <% end %>
+  </li>
+  <hr>
+  <% end %>
+    </div>
   </div>
 </div>
 
-<div class="container">
-      <div class="lobbies mt-3">
-        <ul class="list-group list-group-flush">
-          <% @game.lobbies.each do |lobby| %>
-          <li class="list-group-item decoration-none">
-            <%= link_to lobby_path(lobby) do %>
-            <div class="d-flex align-items-center justify-content-between w-100", style="<%= lobby.sessions.count != lobby.max_players ? (lobby.competitive? ? 'background-color: red' : 'background-color: lightgreen';) : 'background-color: pink'; %>" >
-                <p class="lobby-name"><%= lobby.description %></p>
-                <p class="lobby-players"><%= lobby.sessions.count %>/<%= lobby.max_players ? lobby.max_players : "?" %></p>
-            </div>
-            <% end %>
-          </li>
-          <% end %>
 
-          <li class="list-group-item text-center"><%= link_to new_game_lobby_path(params[:id]) do %>
-            <i class="fas fa-plus-circle"></i>
-            <% end %></li>
           </ul>
         </div>
 

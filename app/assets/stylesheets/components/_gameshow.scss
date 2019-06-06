@@ -29,8 +29,9 @@
 .lobby-name {
   color: white;
   font-weight: bold;
-  margin-left: 5px;
+  margin-left: 10px;
   text-decoration: none;
+  margin-bottom: 0px;
 }
 
 .lobby-players {
@@ -38,18 +39,38 @@
   font-weight: bold;
   margin-right: 5px;
   text-decoration: none;
+  margin-bottom: auto;
 }
 
 .decoration-none {
   text-decoration: none;
 }
+
 .decoration-none a:hover {
 text-decoration: none;
 }
-.competitive-lobby {
-  color: green;
+
+.lobbyamount {
+  color: white;
+  text-align: center;
 }
 
-.negative-competitive-lobby {
-  color: red;
+.lobbyavaliable {
+  font-weight: bold;
+}
+
+.lobby-card-1 {
+  background-color: #616165;
+  text-decoration: none;
+  margin-bottom: -18px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.list-style-none {
+  list-style-type: none;
+}
+
+.lobby-info-holder {
+margin-bottom: 0px;
 }
