@@ -1,0 +1,99 @@
+.game_banner_show {
+  background-size: cover;
+  background-position: center;
+}
+
+.game_banner_show img {
+  border-radius: 10px;
+  width: 100%;
+  height: 50vh;
+  object-fit: cover;
+  object-position: relative;
+
+}
+ .game_banner_show {
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  padding: 180px 0px;
+ }
+
+.game_banner_show h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.lobby-name {
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+  text-decoration: none;
+  margin-bottom: 0px;
+  text-align: auto;
+  font-size: 15px;
+}
+
+.lobby-user {
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+  text-decoration: none;
+  margin-bottom: 0px;
+  font-size: 14px;
+}
+
+.lobby-players {
+  color: white;
+  font-weight: bold;
+  margin-right: 5px;
+  text-decoration: none;
+  margin-bottom: auto;
+  width: auto;
+}
+
+.decoration-none {
+  text-decoration: none;
+}
+
+.decoration-none a:hover {
+text-decoration: none;
+}
+
+.lobbyamount {
+  color: white;
+  text-align: center;
+}
+
+.lobbyavaliable {
+  font-weight: bold;
+}
+
+.lobby-card-1 {
+  background-color: #616165;
+  text-decoration: none;
+  margin-bottom: -18px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.list-style-none {
+  list-style-type: none;
+}
+
+.lobby-info-holder {
+margin-bottom: 0px;
+}
+
+.fa-user-alt {
+  color: #e6821a;
+}
+
+.lobbymode {
+
+}
+ .numberholder {
+  width: 5%;
+ }
