@@ -1,10 +1,21 @@
 <div class="container">
+  <div class="row my-2">
+    <div class="col-3">
+      <p class="btn btn-danger w-100 my-0">Exit</p>
+    </div>
+    <div class="col-6">
+      <p class="text-truncate w-100"><%= @lobby.description %></p>
+    </div>
+    <div class="col-3">
+      <%= link_to "Edit the Lobby", edit_lobby_path(@lobby), class: "btn btn-warning w-100" %>
+    </div>
+  </div>
   <div class="row">
     <div class="col-3 col-lg-3">
       <% @lobby.users.each do |user| %>
-        <div class="shadow <%= 'border border-warning' if user == @owner %>">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/Luidiblu", class: "avatar" %>
-          <%= user.nickname %>
+        <div class="d-flex align-items-center <%= 'border border-warning' if user == @owner %>">
+          <%= image_tag "https://kitt.lewagon.com/placeholder/users/Luidiblu", class: "avatar m-2" %>
+          <p class="text-truncate"><%= user.nickname %></p>
         </div>
       <% end %>
     </div>
