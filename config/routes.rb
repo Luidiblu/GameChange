@@ -6,7 +6,9 @@ Rails.application.routes.draw do
 
   root to: 'pages#home'
 
-  resources :profile, only: %i[show]
+
+  resources :profile, only: %i[show favorites]
+
 
   resources :games
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
@@ -16,5 +18,7 @@ Rails.application.routes.draw do
   resources :games do
     resources :lobbies, only: %i[index new create]
   end
+
+  resources :favorites, only: [:new, :create]
 
 end
