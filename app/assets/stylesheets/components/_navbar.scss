@@ -15,6 +15,11 @@
   width: 55px;
 }
 
+.navbar-lewagon .navbar-brand img:hover {
+  width: 55px;
+  transform: rotateY(180deg);
+}
+
 .navbar-login {
   user-select: none;
   white-space: nowrap;
@@ -50,7 +55,11 @@
   border-style: inset;
   border-width: 1px;
   color: #EBE9E9;
-  opacity: 0.5;
+  opacity: 0.1;
   margin-top: 0rem;
   margin-bottom: 0.10rem;
+}
+
+.nav-link {
+  color: white !important;
 }

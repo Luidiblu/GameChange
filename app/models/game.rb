@@ -13,4 +13,11 @@ class Game < ApplicationRecord
       '3 x 3' => 6
     }
   end
+
+  include PgSearch
+  pg_search_scope :search_by_name,
+  against: [ :name],
+  using: {
+    tsearch: { prefix: true }
+  }
 end

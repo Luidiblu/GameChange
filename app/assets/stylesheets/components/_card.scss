@@ -10,7 +10,10 @@
 
 .card-img {
   height: 315px;
-  width: 210px;
+  width: 100%;
+  padding: 2px;
+  margin: 0 auto;
+  border-radius: 5px;
 }
 
 .card-space {
