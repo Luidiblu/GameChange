@@ -22,4 +22,9 @@ class Lobby < ApplicationRecord
 
     return fits_in_lobby && !already_in_session
   end
+
+  def move_admin
+    self.user = self.sessions.first.user
+    self.save
+  end
 end

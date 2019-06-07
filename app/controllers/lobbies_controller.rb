@@ -1,5 +1,5 @@
 class LobbiesController < ApplicationController
-  before_action :set_game, only: %i[index new create]
+  before_action :set_game, only: %i[index new create exit_lobby]
   before_action :set_lobby, only: %i[show edit update]
 
   def index
@@ -68,6 +68,16 @@ class LobbiesController < ApplicationController
     else
       render :edit
     end
+  end
+
+  def exit_lobby
+    if current_user == @lobby.user
+      @lobby.move_admin
+    end
+
+    current_user.sessions.select(&:active?).first = false
+
+    redirect_to @game
   end
 
   private
