@@ -2,7 +2,7 @@ import Typed from 'typed.js';
 
 const bannerText = () => {
   new Typed('#typed-text', {
-    strings: ["Find Players...", "Play Better...", "Have fun!"],
+    strings: ["Find Players.", "Play Better.", "Have fun!"],
     typeSpeed: 70,
     loop: true,
     backDelay: 1500,
