@@ -5,6 +5,12 @@ class ProfileController < ApplicationController
   def show
   end
 
+  def create
+  end
+
+  def update
+  end
+
   private
 
   def set_profile
