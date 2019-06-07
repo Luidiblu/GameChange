@@ -1,7 +1,7 @@
 /* Cursor */
 .typed-cursor {
   color: white;
-  font-size: 60px;
+  font-size: 50px;
 }
 
 /* If fade out option is set */
@@ -11,7 +11,7 @@
 
 #typed-text {
   color: white;
-  font-size: 60px;
+  font-size: 50px;
   font-weight: bold;
 
 }
@@ -19,15 +19,15 @@
 // background0
 
 .bannertext {
-  justify-content: center;
-  margin: auto;
-  padding-bottom: 10vh;
+  // justify-content: center;
+  // margin: auto;
+  // padding-bottom: 10vh;
 }
 
 .backgroundbanner {
   background-image: linear-gradient(rgba(20, 8, 10, 0.75), rgba(20, 8,10, 0.4)), url("https://i.pinimg.com/originals/95/69/dd/9569dd8d39abff785045f5b3f0332d63.jpg");
   background-position: center;
-  padding: 306px 0;
+  height: calc(100vh - 50px);
   background-size: cover;
 }
 
@@ -41,6 +41,6 @@
 .backgroundbanner2 {
   background-image: linear-gradient(rgba(20, 8, 10, 0.75), rgba(20, 8,10, 0.4)), url("http://christianbackgrounds.info/new_images/6/62842628-arcade-wallpapers.jpg");
   background-position: center;
-  padding: 199px 0;
+  height: calc(100vh - 50px);
   background-size: cover;
 }
