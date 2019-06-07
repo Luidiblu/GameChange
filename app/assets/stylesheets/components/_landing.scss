@@ -4,6 +4,10 @@ body {
   position: relative;
 }
 
+a {
+  cursor: pointer;
+}
+
 .btn-group {
   justify-content: center;
   justify-space: between;
@@ -21,13 +25,11 @@ body {
   text-decoration: none;
   color: #27272B;
   line-height: 24px;
-  margin-right: 18px;
   padding: 38px 42px;
   border: 1px solid hsla(0,0%,100%,.8);
   padding: 10px 0px 10px;
   border-radius: 5px;
   font-weight: medium;
-  // background-color: transparent;
 }
 
 .landing1-btn:hover{
@@ -42,11 +44,9 @@ body {
   text-decoration: none;
   color: #e6821a  ;
   line-height: 24px;
-  margin-right: 18px;
   padding: 38px 42px;
   border: 1px solid hsla(0,0%,100%,.8);
   padding: 10px 0px 10px;
   border-radius: 5px;
   font-weight: bold;
-  // background-color: transparent;
 }

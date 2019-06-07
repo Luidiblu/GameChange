@@ -1,33 +1,33 @@
 <div class="backgroundbanner2">
-  <div class="container">
-    <div class="d-flex bannertext1">
-      <div class="loginform">
-        <div class="logintitle">
-          <h2>Login</h2>
-        </div>
-        <hr>
-          <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-            <div class="form-inputs">
-              <%= f.input :email,
-                          required: false,
-                          autofocus: true,
-                          input_html: { autocomplete: "email" } %>
-              <%= f.input :password,
-                          required: false,
-                          input_html: { autocomplete: "current-password" } %>
-              <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
-            </div>
+    <div class="container d-flex flex-column" style="
+    height: 100%; justify-content: center; align-items: center;">
+      <div class="d-flex bannertext1">
+        <div class="loginform">
+          <div class="logintitle">
+            <h2>Login</h2>
+          </div>
+          <hr>
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="form-inputs">
+                <%= f.input :email,
+                            required: false,
+                            autofocus: true,
+                            input_html: { autocomplete: "email" } %>
+                <%= f.input :password,
+                            required: false,
+                            input_html: { autocomplete: "current-password" } %>
+                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+              </div>
 
-            <div class="form-actions">
-              <%= f.button :submit, "Log in", class: "btn-gamechanger" %>
-            </div>
-          <% end %>
-        <br>
-        <div class="aligntextcenter">
-          Don't have a account? <%= render "devise/shared/links" %>
+              <div class="form-actions">
+                <%= f.button :submit, "Log in", class: "btn-gamechanger" %>
+              </div>
+            <% end %>
+          <br>
+          <div class="aligntextcenter">
+            Don't have a account? <%= render "devise/shared/links" %>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
