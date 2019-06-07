@@ -15,11 +15,5 @@ class FavoritesController < ApplicationController
     end
     redirect_to root_path
   end
-  def skip
-    redirect_to profile_path
-  end
-  def destroy
-    @favorite.destroy
-  end
 
 end
