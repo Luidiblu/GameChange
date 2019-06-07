@@ -29,7 +29,12 @@ class LobbiesController < ApplicationController
   end
 
   def new
-    @lobby = Lobby.new
+    if current_user.sessions.select(&:active?).any?
+      flash[:notice] = "You're already in another lobby!."
+      redirect_to game_path(@game)
+    else
+      @lobby = Lobby.new
+    end
   end
 
   def create
