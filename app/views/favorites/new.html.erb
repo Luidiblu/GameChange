@@ -1,0 +1,9 @@
+<div class="container">
+
+    <%= simple_form_for @favorite do |form| %>
+      <%= form.association :game, as: :check_boxes, class: 'form-control' %>
+
+      <%= form.submit 'Enviar', class: 'btn btn-primary' %>
+    <% end %>
+    <%= link_to 'skip', profile_path(current_user) %>
+  </div>
