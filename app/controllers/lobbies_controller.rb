@@ -1,6 +1,6 @@
 class LobbiesController < ApplicationController
   before_action :set_game, only: %i[index new create]
-  before_action :set_lobby, only: %i[show]
+  before_action :set_lobby, only: %i[show edit update]
 
   def index
     @lobbies = Lobby.where(game: @game)
@@ -21,7 +21,7 @@ class LobbiesController < ApplicationController
         )
       end
 
-      flash[:notice] = 'Welcome'
+      # flash[:notice] = 'Welcome'
     else
       flash[:notice] = 'You cant enter this lobby right now.'
       redirect_to game_path(@lobby.game)
@@ -51,6 +51,22 @@ class LobbiesController < ApplicationController
       # alert.message("Uau")
 
       render :new
+    end
+  end
+
+  def edit
+    unless current_user == @lobby.user
+      flash[:notice] = 'Only the ADMIN can change the lobby settings'
+      redirect_to @lobby
+    end
+  end
+
+  def update
+    if @lobby.update(lobby_params)
+      flash[:notice] = 'Your changes have been saved!'
+      redirect_to @lobby
+    else
+      render :edit
     end
   end
 
