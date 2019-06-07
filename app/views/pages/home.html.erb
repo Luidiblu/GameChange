@@ -1,20 +1,31 @@
 <div class="backgroundbanner">
-  <div class="container">
-    <div class="d-flex bannertext">
+  <div class="container d-flex flex-column" style="
+    height: 100%; justify-content: center; align-items: center;">
+    <div class="bannertext text-center">
       <span id="typed-text"></span>
       <span id="typed"></span>
     </div>
-    <div class="d-flex btn-group">
+    <div class="btn-group">
       <% if user_signed_in? %>
-        <%= link_to "Browse Games", games_path, class: "landing1-btn" %>
-        <%= link_to "Your Profile", profile_path(current_user), class: "landing1-btn" %>
-
+      <div class="row">
+        <div class="col-12 col-lg-6 text-center">
+          <%= link_to "Browse Games", games_path, class: "landing1-btn" %>
+        </div>
+        <div class="col-12 col-lg-6 text-center">
+          <%= link_to "Your Profile", profile_path(current_user), class: "landing1-btn" %>
+        </div>
+      </div>
       <% else %>
-
-        <%= link_to "Browse Games", new_user_session_path, class: "landing1-btn" %>
+      <div class="row">
+        <div class="col-12 col-lg-6 text-center">
         <%= link_to "Sign Up", new_user_registration_path, class: "landing1-btn" %>
+        </div>
+        <div class="col-12 col-lg-6 text-center">
+          <%= link_to "Browse Games", new_user_session_path, class: "landing1-btn" %>
+        </div>
+      </div>
       <% end %>
     </div>
   </div>
 </div>
-
+<%= render 'shared/footer' %>
