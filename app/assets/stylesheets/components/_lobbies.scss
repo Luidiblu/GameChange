@@ -1,0 +1,30 @@
+.avatarplayercard {
+  background-color: #57585b;
+  border-radius: 23px;
+}
+
+.avatarplayercard:hover {
+  background-color: #414244;
+}
+
+.lobby-gamename-show {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 0px;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+
+.lobby-playersnumber-show {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  margin-bottom: 0px;
+  font-size: 15px;
+}
+
+.inside-game-lobby {
+  background-color: grey;
+  border-radius: 0px 0px 10px 10px;
+}
