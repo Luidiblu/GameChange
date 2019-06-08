@@ -3,22 +3,29 @@
     <div class="col-12 col-lg-3">
       <div class="shadow">
         <div class="d-flex align-items-center">
-
-          <div class="card w-25">
+          <div class="card">
             <%= image_tag(@lobby.game.photo, class: "card-img") %>
           </div>
-
-          <div class="shadow text-center w-75">
-            <p><%= @lobby.game.name %></p>
-            <p><%= @lobby.users.count %>/<%= @lobby.max_players ? @lobby.max_players : "??" %></p>
-          </div>
         </div>
+
+          <div class="inside-game-lobby text-center">
+            <p class="lobby-gamename-show"><%= @lobby.game.name %></p>
+            <p class="lobby-gamename-show"><%= @lobby.description %></p>
+            <div class="playersinlobby">
+              <i class="fas fa-user-alt"></i>
+              <i class="fas fa-user-alt" style="color: black;"></i>
+              <i class="fas fa-user-alt" style="color: black;"></i>
+              <i class="fas fa-user-alt" style="color: black;"></i>
+              <i class="fas fa-user-alt" style="color: black;"></i>
+            </div>
+            <p class="lobby-playersnumber-show"><%= @lobby.users.count %>/<%= @lobby.max_players ? @lobby.max_players : "??" %></p>
+          </div>
       </div>
     </div>
 
     <div class="col-3 col-lg-3">
       <% @lobby.users.each do |user| %>
-        <div class="shadow <%= 'border border-warning' if user == @owner %>">
+        <div class="shadow avatarplayercard text-truncate lobby-gamename-show <%= 'border border-warning' if user == @owner %>">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/Luidiblu", class: "avatar" %>
           <%= user.nickname %>
         </div>

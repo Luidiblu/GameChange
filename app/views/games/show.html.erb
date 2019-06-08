@@ -6,7 +6,6 @@
     <% end %>
   </div>
 </div>
-a
 <div class="container">
   <div class="lobbyamount">
     <h3 class="lobbyavaliable mb-4 mt-3"><%= @game.lobbies.select{ |l| l.max_players > l.sessions.count }.count %> Lobbies Avaliables.</h3>
