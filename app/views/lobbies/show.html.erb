@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row my-2">
     <div class="col-3">
-      <p class="btn btn-danger w-100 my-0">Exit</p>
+      <%= link_to "Exit this lobby", exit_lobby_path_url(@lobby.game) %>
     </div>
     <div class="col-6">
       <p class="text-truncate w-100"><%= @lobby.description %></p>
@@ -21,17 +21,17 @@
 
           <div class="shadow text-center w-75">
             <p><%= @lobby.game.name %></p>
-            <p><%= @lobby.users.count %>/<%= @lobby.max_players ? @lobby.max_players : "??" %></p>
+            <p><%= @lobby.sessions.select(&:active).count %>/<%= @lobby.max_players ? @lobby.max_players : "??" %></p>
           </div>
         </div>
       </div>
     </div>
 
     <div class="col-3 col-lg-3">
-      <% @lobby.users.each do |user| %>
-        <div class="d-flex align-items-center <%= 'border border-warning' if user == @owner %>">
+      <% @lobby.sessions.select(&:active).each do |active_session| %>
+        <div class="d-flex align-items-center <%= 'border border-warning' if active_session.user == @owner %>">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/Luidiblu", class: "avatar m-2" %>
-          <p class="text-truncate"><%= user.nickname %></p>
+          <p class="text-truncate"><%= active_session.user.nickname %></p>
         </div>
       <% end %>
     </div>

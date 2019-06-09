@@ -9,8 +9,6 @@ Rails.application.routes.draw do
 
   resources :profile, only: %i[show favorites]
 
-
-  resources :games
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :lobbies, except: %i[index new create]
@@ -21,4 +19,5 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:new, :create]
 
+  post "/games/:id", to: 'lobbies#exit_lobby', as: :exit_lobby_path
 end
