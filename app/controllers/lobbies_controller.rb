@@ -71,11 +71,11 @@ class LobbiesController < ApplicationController
   end
 
   def exit_lobby
+    current_user.sessions.select(&:active?).first = false
+
     if current_user == @lobby.user
       @lobby.move_admin
     end
-
-    current_user.sessions.select(&:active?).first = false
 
     redirect_to @game
   end

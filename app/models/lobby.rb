@@ -24,7 +24,7 @@ class Lobby < ApplicationRecord
   end
 
   def move_admin
-    self.user = self.sessions.first.user
+    self.user = self.sessions.select(&:active?).first.user
     self.save
   end
 end

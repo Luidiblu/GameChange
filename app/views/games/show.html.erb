@@ -17,7 +17,7 @@ a
       <%= link_to lobby_path(lobby) do %>
         <div class="d-flex lobby-card-1 align-items-center justify-content-around w-100">
           <div class="d-flex lobby-name-holder w-25">
-            <%=cl_image_tag(lobby.user.avatar) %>
+            <%#=cl_image_tag(lobby.user.avatar.url) %>
             <p class="lobby-user text-truncate"><%= lobby.user.nickname %></p>
           </div>
 
@@ -30,7 +30,7 @@ a
           </div>
 
           <div class="d-flex lobby-info-holder align-items-center justify-content-end numberholder">
-            <p class="lobby-players "><%= lobby.sessions.count %>/<%= lobby.max_players ? lobby.max_players : "?" %></p>
+            <p class="lobby-players "><%= lobby.sessions.select(&:active?).count %>/<%= lobby.max_players ? lobby.max_players : "??" %></p>
             <i class="fas fa-user-alt"></i>
           </div>
 
