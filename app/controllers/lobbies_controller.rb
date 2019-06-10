@@ -1,6 +1,6 @@
 class LobbiesController < ApplicationController
-  before_action :set_game, only: %i[index new create exit_lobby]
-  before_action :set_lobby, only: %i[show edit update]
+  before_action :set_game, only: %i[index new create]
+  before_action :set_lobby, only: %i[show edit update exit_lobby]
 
   def index
     @lobbies = Lobby.where(game: @game)
@@ -19,6 +19,15 @@ class LobbiesController < ApplicationController
           accepted: true,
           active: true
         )
+      end
+
+      if current_user.lobbies.include? @lobby
+        lobby_session = current_user.sessions.find_by(lobby: @lobby)
+        lobby_session.active = true
+        lobby_session.save
+
+        # raise
+
       end
 
       # flash[:notice] = 'Welcome'
@@ -71,13 +80,17 @@ class LobbiesController < ApplicationController
   end
 
   def exit_lobby
-    current_user.sessions.select(&:active?).first = false
+    new_inactive_session = current_user.sessions.select(&:active?).first
+    new_inactive_session.active = false
+    new_inactive_session.save
+
+    # raise
 
     if current_user == @lobby.user
       @lobby.move_admin
     end
 
-    redirect_to @game
+    redirect_to @lobby.game
   end
 
   private
