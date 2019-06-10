@@ -53,7 +53,7 @@ class LobbiesController < ApplicationController
   end
 
   def enter_lobby
-    member = @lobby.sessions.select(&:active?).map(&:user).flatten.include? current_user
+    member = @lobby.sessions.where(active: true).map(&:user).flatten.include? current_user
 
     if @lobby.user_allowed?(current_user) || member
       unless member
@@ -81,15 +81,15 @@ class LobbiesController < ApplicationController
   def exit_lobby
     game = @lobby.game
 
-    new_inactive_session = current_user.sessions.select(&:active?).find_by(game: game)
+    new_inactive_session = current_user.sessions.find_by(lobby: @lobby)
     new_inactive_session.active = false
     new_inactive_session.save
     # raise
 
     if current_user == @lobby.user
-      if @lobby.sessions.select(&:active?).count.positive?
+      if @lobby.sessions.where(active: true).count.positive?
         @lobby.move_admin
-        raise
+        # raise
       else
         @lobby.active = false
         @lobby.save

@@ -18,7 +18,7 @@
     <% next unless lobby.active %>
     <li class="list-style-none decoration-none">
       <%= link_to enter_lobby_path(lobby), method: :post do %>
-        <div class="d-flex lobby-card-1 align-items-center justify-content-around w-100" style="<% 'background-color: red;' if lobby.max_players == lobby.sessions.select(&:active?).count %>">
+        <div class="d-flex lobby-card-1 align-items-center justify-content-around w-100" style="<% 'background-color: red;' if lobby.max_players == lobby.sessions.where(active: true).count %>">
           <div class="d-flex lobby-name-holder w-25">
             <%=cl_image_tag(lobby.user.avatar, class: "gameshowavatar") %>
 
@@ -33,7 +33,7 @@
           </div>
 
           <div class="d-flex lobby-info-holder align-items-center justify-content-end numberholder">
-            <p class="lobby-players "><%= lobby.sessions.select(&:active?).count %>/<%= lobby.max_players ? lobby.max_players : "??" %></p>
+            <p class="lobby-players "><%= lobby.sessions.where(active: true).count %>/<%= lobby.max_players ? lobby.max_players : "??" %></p>
             <i class="fas fa-user-alt"></i>
           </div>
         </div>
