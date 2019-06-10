@@ -2,7 +2,7 @@
   <div class="container">
     <h1> <%= @game.name %> </h1>
     <%= link_to new_game_lobby_path(params[:id]) do %>
-      <i class="fas fa-plus-circle"></i>
+      <button class="btn btn-warning">New Lobby</button>
     <% end %>
   </div>
 </div>
@@ -16,7 +16,7 @@
       <%= link_to lobby_path(lobby) do %>
         <div class="d-flex lobby-card-1 align-items-center justify-content-around w-100">
           <div class="d-flex lobby-name-holder w-25">
-            <%=cl_image_tag(lobby.user.avatar) %>
+            <%=cl_image_tag(lobby.user.avatar, class: "gameshowavatar") %>
             <p class="lobby-user text-truncate"><%= lobby.user.nickname %></p>
           </div>
           <div class="text-left w-25">
