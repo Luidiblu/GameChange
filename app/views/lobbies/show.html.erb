@@ -1,4 +1,16 @@
 <div class="container mt-5">
+  <div class="row my-2">
+    <div class="col-3">
+      <%= link_to "Exit this lobby", exit_lobby_path(@lobby), method: :post, class: "btn btn-danger" %>
+    </div>
+    <div class="col-6">
+      <p class="text-truncate w-100"><%= @lobby.description %></p>
+    </div>
+    <div class="col-3">
+      <%= link_to "Edit the Lobby", edit_lobby_path(@lobby), class: "btn btn-warning w-100" %>
+    </div>
+  </div>
+
   <div class="row">
     <div class="col-12 col-lg-3">
       <div class="shadow">
@@ -8,34 +20,31 @@
           </div>
         </div>
 
-          <div class="inside-game-lobby text-center">
-            <p class="lobby-gamename-show"><%= @lobby.game.name %></p>
-            <p class="lobby-gamename-show"><%= @lobby.description %></p>
-            <p class="lobby-playersnumber-show"><%= @lobby.users.count %>/<%= @lobby.max_players ? @lobby.max_players : "??" %></p>
-            <div class="playersinlobby">
-              <i class="fas fa-user-alt"></i>
-              <i class="fas fa-user-alt" style="color: black;"></i>
-              <i class="fas fa-user-alt" style="color: black;"></i>
-              <i class="fas fa-user-alt" style="color: black;"></i>
-              <i class="fas fa-user-alt" style="color: black;"></i>
-            </div>
+        <div class="inside-game-lobby text-center">
+          <p class="lobby-gamename-show"><%= @lobby.game.name %></p>
+          <p class="lobby-gamename-show"><%= @lobby.description %></p>
+          <p class="lobby-playersnumber-show"><%= @lobby.users.count %>/<%= @lobby.max_players ? @lobby.max_players : "??" %></p>
+          <div class="playersinlobby">
+            <i class="fas fa-user-alt"></i>
+            <i class="fas fa-user-alt" style="color: black;"></i>
+            <i class="fas fa-user-alt" style="color: black;"></i>
+            <i class="fas fa-user-alt" style="color: black;"></i>
+            <i class="fas fa-user-alt" style="color: black;"></i>
           </div>
+        </div>
       </div>
     </div>
 
     <div class="col-3 col-lg-3">
-      <% @lobby.users.each do |user| %>
-        <%= link_to profile_path(user) do %>
-        <div class="shadow avatarplayercard text-truncate lobby-gamename-show <%= 'border border-warning' if user == @owner %>">
+      <% @lobby.sessions.select(&:active?).each do |active_session| %>
+        <%= link_to profile_path(active_session.user) do %>
+        <div class="shadow avatarplayercard text-truncate lobby-gamename-show <%= 'border border-warning' if active_session.user == @owner %>">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/Luidiblu", class: "avatar" %>
-          <%= user.nickname %>
+          <%= active_session.user.nickname %>
         </div>
         <% end %>
       <% end %>
     </div>
-
-   <p><%= link_to "Join", lobby_path(@lobby), class: "btn btn-danger" %></p>
-   <p><%= link_to "Exit", lobby_path(@lobby), class: "btn btn-danger" %></p>
 
     <div class="col-9 col-lg-6">
       <div class="shadow">

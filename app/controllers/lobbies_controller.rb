@@ -1,6 +1,6 @@
 class LobbiesController < ApplicationController
   before_action :set_game, only: %i[index new create]
-  before_action :set_lobby, only: %i[show]
+  before_action :set_lobby, only: %i[show edit update enter_lobby exit_lobby]
 
   def index
     @lobbies = Lobby.where(game: @game)
@@ -8,28 +8,15 @@ class LobbiesController < ApplicationController
 
   def show
     @owner = @lobby.user
-
-    member = @lobby.users.include? current_user
-
-    if @lobby.user_allowed?(current_user) || member
-      unless member
-        Session.create(
-          lobby: @lobby,
-          user: current_user,
-          accepted: true,
-          active: true
-        )
-      end
-
-      flash[:notice] = 'Welcome'
-    else
-      flash[:notice] = 'You cant enter this lobby right now.'
-      redirect_to game_path(@lobby.game)
-    end
   end
 
   def new
-    @lobby = Lobby.new
+    if current_user.sessions.select(&:active?).any?
+      flash[:notice] = "You're already in another lobby!"
+      redirect_to game_path(@game)
+    else
+      @lobby = Lobby.new
+    end
   end
 
   def create
@@ -49,6 +36,69 @@ class LobbiesController < ApplicationController
     end
   end
 
+  def edit
+    unless current_user == @lobby.user
+      flash[:notice] = 'Only the ADMIN can change the lobby settings'
+      redirect_to @lobby
+    end
+  end
+
+  def update
+    if @lobby.update(lobby_params)
+      flash[:notice] = 'Your changes have been saved!'
+      redirect_to @lobby
+    else
+      render :edit
+    end
+  end
+
+  def enter_lobby
+    member = @lobby.sessions.select(&:active?).map(&:user).flatten.include? current_user
+
+    if @lobby.user_allowed?(current_user) || member
+      unless member
+        Session.create(
+          lobby: @lobby,
+          user: current_user,
+          accepted: true,
+          active: true
+        )
+      end
+
+      if current_user.sessions.select { |s| s.active? == false }.map(&:lobby).include? @lobby
+        lobby_session = current_user.sessions.find_by(lobby: @lobby)
+        lobby_session.active = true
+        lobby_session.save
+      end
+
+      redirect_to @lobby
+    else
+      flash[:notice] = 'You cant enter this lobby right now.'
+      redirect_to game_path(@lobby.game)
+    end
+  end
+
+  def exit_lobby
+    new_inactive_session = current_user.sessions.select(&:active?).first
+    new_inactive_session.active = false
+    new_inactive_session.save
+
+    game = @lobby.game
+
+    # raise
+
+    if current_user == @lobby.user
+      if @lobby.sessions.select(&:active?).count.positive?
+        @lobby.move_admin
+      else
+        raise
+        @lobby.active = false
+        @lobby.save
+      end
+    end
+    redirect_to game
+  end
+
   private
 
   def set_game
@@ -57,6 +107,12 @@ class LobbiesController < ApplicationController
 
   def set_lobby
     @lobby = Lobby.find(params[:id])
+    l_users = @lobby.sessions.select(&:active?).map(&:user)
+    unless @lobby.active && l_users.include?(current_user)
+      flash[:notice] = "This lobby cannot be reached!"
+      redirect_to @lobby.game
+    end
+
   end
 
   def lobby_params
