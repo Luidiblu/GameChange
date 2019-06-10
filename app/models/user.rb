@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-  has_many :sessions
+  has_many :sessions, dependent: :destroy
   has_many :lobbies, through: :sessions
   has_many :favorites, dependent: :destroy
   has_many :games, through: :favorites
