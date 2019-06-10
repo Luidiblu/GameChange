@@ -11,6 +11,8 @@ class LobbiesController < ApplicationController
 
     member = @lobby.users.include? current_user
 
+    redirect_to @lobby.game unless @lobby.active
+
     if @lobby.user_allowed?(current_user) || member
       unless member
         Session.create(
@@ -91,13 +93,12 @@ class LobbiesController < ApplicationController
     if current_user == @lobby.user
       if @lobby.sessions.select(&:active?).count.positive?
         @lobby.move_admin
+        redirect_to game
       else
         # raise
-        @lobby.destroy
+        @lobby.active = false
       end
     end
-
-    redirect_to game
   end
 
   private

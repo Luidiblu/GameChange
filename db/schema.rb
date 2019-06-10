@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_06_06_201440) do
   end
 
   create_table "lobbies", force: :cascade do |t|
-    t.boolean "active"
+    t.boolean "active", default: true
     t.boolean "competitive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
