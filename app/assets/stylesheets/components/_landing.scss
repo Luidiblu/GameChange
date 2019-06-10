@@ -50,3 +50,70 @@ a {
   border-radius: 5px;
   font-weight: bold;
 }
+
+
+// Page section padding
+
+.page-section {
+  padding: 50px 0;
+  h2.section-heading {
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  h3.section-subheading {
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+    margin-bottom: 50px;
+    text-transform: none;
+  }
+  hr.divider{
+    background-color: orange;
+    border: none;
+    height: 1px;
+  }
+  i.fas{
+    color: orange;
+  }
+
+@media(min-width:768px) {
+  section {
+    padding: 150px 0;
+  }
+}
+}
+// Styling for the services section
+.service-heading {
+  margin: 15px 0;
+  text-transform: capitalize;
+}
+
+// orange grid divider
+.grid-divider {
+  overflow-x: hidden; //quickfix to hide divider on left side
+  position: relative;
+}
+
+.grid-divider > [class*="col-"]:nth-child(n + 2):after {
+  content: "";
+  background-color: orange;
+  padding: 2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+
+  @media (max-width: 767px) {
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: -4px; // quickfix to center line between columns
+  }
+  @media (min-width: 768px) {
+    width: 1px;
+    height: auto;
+    left: -1px; // quickfix to hide divider on left side
+  }
+}
+
+//scroll
