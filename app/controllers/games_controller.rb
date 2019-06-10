@@ -21,7 +21,8 @@ class GamesController < ApplicationController
       # if @favorite.save
       # end
 
-    @available = @game.lobbies.select { |l| l.max_players > l.sessions.select(&:active?).count && l.active? }.count
+    @available = @game.lobbies.select { |l| l.max_players > l.sessions.where(active: true).count && l.active? }.count
+    # raise
   end
 
   def edit; end
