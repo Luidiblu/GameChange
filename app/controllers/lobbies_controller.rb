@@ -11,8 +11,6 @@ class LobbiesController < ApplicationController
 
     member = @lobby.users.include? current_user
 
-    redirect_to @lobby.game unless @lobby.active
-
     if @lobby.user_allowed?(current_user) || member
       unless member
         Session.create(
@@ -93,12 +91,13 @@ class LobbiesController < ApplicationController
     if current_user == @lobby.user
       if @lobby.sessions.select(&:active?).count.positive?
         @lobby.move_admin
-        redirect_to game
       else
         # raise
         @lobby.active = false
+        @lobby.save00
       end
     end
+    redirect_to game
   end
 
   private
@@ -109,6 +108,12 @@ class LobbiesController < ApplicationController
 
   def set_lobby
     @lobby = Lobby.find(params[:id])
+
+    unless @lobby.active
+      flash[:notice] = "This lobby cannot be reached!"
+      redirect_to @lobby.game
+    end
+
   end
 
   def lobby_params
