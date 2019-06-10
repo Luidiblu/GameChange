@@ -79,21 +79,22 @@ class LobbiesController < ApplicationController
   end
 
   def exit_lobby
-    new_inactive_session = current_user.sessions.select(&:active?).first
-    new_inactive_session.active = false
-    new_inactive_session.save
-
     game = @lobby.game
 
+    new_inactive_session = current_user.sessions.select(&:active?).find_by(game: game)
+    new_inactive_session.active = false
+    new_inactive_session.save
     # raise
 
-    if @lobby.sessions.select(&:active?).count.positive?
-      if current_user == @lobby.user
+    if current_user == @lobby.user
+      if @lobby.sessions.select(&:active?).count.positive?
         @lobby.move_admin
+        raise
+      else
+        @lobby.active = false
+        @lobby.save
+        raise
       end
-    else
-      @lobby.active = false
-      @lobby.save
     end
     redirect_to game
   end
