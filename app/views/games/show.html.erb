@@ -1,4 +1,7 @@
 <div class="game_banner_show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path(@game.photo ? @game.photo : "https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png") %>)" >
+  <%= link_to game_add_favorite_path(@game), method: :post do %>
+    <button type="button" name="button" class="btn btn-danger">Favorite</button>
+  <% end %>
   <div class="container">
     <h1> <%= @game.name %> </h1>
     <%= link_to new_game_lobby_path(params[:id]) do %>
@@ -6,7 +9,6 @@
     <% end %>
   </div>
 </div>
-a
 <div class="container">
   <div class="lobbyamount">
     <h3 class="lobbyavaliable mb-4 mt-3"><%= @game.lobbies.select{ |l| l.max_players > l.sessions.count }.count %> Lobbies Avaliables.</h3>
@@ -20,24 +22,21 @@ a
             <%#=cl_image_tag(lobby.user.avatar.url) %>
             <p class="lobby-user text-truncate"><%= lobby.user.nickname %></p>
           </div>
-
           <div class="text-left w-25">
             <p class="lobby-name text-truncate"><%= lobby.description %></p>
           </div>
 
-          <div class="lobbymode text-center w-25 text-truncate">
-              <%= (lobby.competitive? ? 'Competitive' : 'Casual') %>
+          <div class="lobbymode text-center w-25 text-truncate casualclass <%= 'competitiveclass' if lobby.competitive? == true%>">
+            <%= (lobby.competitive? ? 'Competitive' : 'Casual') %>
           </div>
 
           <div class="d-flex lobby-info-holder align-items-center justify-content-end numberholder">
             <p class="lobby-players "><%= lobby.sessions.select(&:active?).count %>/<%= lobby.max_players ? lobby.max_players : "??" %></p>
             <i class="fas fa-user-alt"></i>
           </div>
-
         </div>
       <% end %>
     </li>
-
     <hr>
   <% end %>
 </div>
