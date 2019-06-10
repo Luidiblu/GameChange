@@ -5,9 +5,11 @@
       <% if current_user.banner_img.nil? %>
         <%= cl_image_tag "image-not-found_t5rkhk.png", class: "banner-profile-img" %>
       <% else %>
-        <%= cl_image_tag @user.banner_img %>
+        <%= cl_image_tag @user.banner_img, class: "banner-profile-img" %>
       <% end %>
     </div>
+
+     <hr>
 
     <div class="profile-info">
       <div class="profile-photo-div">
