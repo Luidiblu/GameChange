@@ -14,7 +14,14 @@ class GamesController < ApplicationController
     @game = Game.new
   end
 
-  def show; end
+  def show
+      #
+      # @id =  Game.find(params[:id])
+      # @favorite = @id.favorites.new(current_user)
+      # if @favorite.save
+      # end
+
+  end
 
   def edit; end
 
@@ -24,6 +31,7 @@ class GamesController < ApplicationController
       redirect_to @game
     else
       render :new
+
     end
   end
 
@@ -49,4 +57,9 @@ class GamesController < ApplicationController
   def game_params
     params.require(:game).permit(:name, :photo)
   end
+
+  def favorite_params
+    params.require(:favorites).permit(:game_id, :user_id)
+  end
+
 end
