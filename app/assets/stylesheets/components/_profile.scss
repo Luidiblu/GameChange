@@ -1,0 +1,24 @@
+.profile-banner-div {
+  width: 50vh;
+  height: 50vh;
+}
+
+.banner-profile-img {
+  height: 100%;
+  width: 100vw;
+  background-size: cover;
+  background-position: center;
+}
+
+.profile-photo {
+  width: 30vh;
+  height: 30vh;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.profile-photo-div {
+  position: absolute;
+  top: 35%;
+  right: 5%;
+  }
