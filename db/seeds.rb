@@ -37,29 +37,29 @@ puts "Generating Games:\n\n"
 
 mine = Game.new(
   name: "Minecraft",
-  photo: "https://www.mobygames.com/images/covers/l/489736-minecraft-windows-apps-front-cover.jpg",
-  banner: "https://images.alphacoders.com/246/thumb-1920-246223.jpg"
+  photo: "https://www.mobygames.com/images/covers/l/489736-minecraft-windows-apps-front-cover.jpg"
+  # banner: "https://images.alphacoders.com/246/thumb-1920-246223.jpg"
 )
 record_new(mine)
 
 lol = Game.new(
   name: "League of Legends",
-  photo: "https://news-a.akamaihd.net/public/images/misc/GameBox.jpg",
-  banner: "http://www.fullhdwpp.com/wp-content/uploads/League_of_Legends_brushed_logo_www.FullHDWpp.com_.jpg"
+  photo: "https://news-a.akamaihd.net/public/images/misc/GameBox.jpg"
+  # banner: "http://www.fullhdwpp.com/wp-content/uploads/League_of_Legends_brushed_logo_www.FullHDWpp.com_.jpg"
 )
 record_new(lol)
 
 gta = Game.new(
   name: "Grand Theft Auto V",
-  photo: "https://s3.gaming-cdn.com/images/products/4211/orig/grand-theft-auto-v-premium-online-edition-cover.jpg",
-  banner: "https://i.imgur.com/XnLkFVa.jpg"
+  photo: "https://s3.gaming-cdn.com/images/products/4211/orig/grand-theft-auto-v-premium-online-edition-cover.jpg"
+  # banner: "https://i.imgur.com/XnLkFVa.jpg"
 )
 record_new(gta)
 
 ass = Game.new(
   name: 'Assassins Creed III',
-  photo: 'https://http2.mlstatic.com/assassins-creed-iii-remastered-midia-fisica-pc-dvd-D_NQ_NP_998247-MLB29758883631_032019-F.jpg',
-  banner: "https://images8.alphacoders.com/990/990551.jpg"
+  photo: 'https://http2.mlstatic.com/assassins-creed-iii-remastered-midia-fisica-pc-dvd-D_NQ_NP_998247-MLB29758883631_032019-F.jpg'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
 )
 record_new(ass)
 
@@ -84,7 +84,7 @@ admin = User.new(
 )
 record_new(admin)
 
-User.all.each { |ad| next unless ad.admin; puts "\n --- #{ad.name} is a site Admin!"}
+User.all.each { |ad| next unless ad.admin; puts "\n --- #{ad.name} is a swebbersittersons Admin!"}
 
 separate
 
