@@ -65,8 +65,7 @@ ActiveRecord::Schema.define(version: 2019_06_05_185021) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "nickname"
-    t.string "profile_pic"
-    t.string "banner_pic"
+    t.string "photo"
     t.string "banner_img"
     t.string "avatar"
     t.index ["email"], name: "index_users_on_email", unique: true
