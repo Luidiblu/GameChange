@@ -11,27 +11,28 @@
 </div>
 <div class="container">
   <div class="lobbyamount">
-    <h3 class="lobbyavaliable mb-4 mt-3"><%= @game.lobbies.select{ |l| l.max_players > l.sessions.count }.count %> Lobbies Avaliables.</h3>
+    <h3 class="lobbyavaliable mb-4 mt-3">Lobbies Avaliable: <%= @game.lobbies.select{ |l| l.max_players > l.sessions.select(&:active?).count && l.active? }.count %></h3>
   </div>
 
   <% @game.lobbies.each do |lobby| %>
+    <% next unless lobby.active %>
     <li class="list-style-none decoration-none">
-      <%= link_to lobby_path(lobby) do %>
-        <div class="d-flex lobby-card-1 align-items-center justify-content-around w-100">
+      <%= link_to enter_lobby_path(lobby), method: :post do %>
+        <div class="d-flex lobby-card-1 align-items-center justify-content-around w-100" style="<% 'background-color: lightred;' if lobby.max_players == lobby.sessions.select(&:active?).count %>">
           <div class="d-flex lobby-name-holder w-25">
-            <%=cl_image_tag(lobby.user.avatar) %>
+            <%#=cl_image_tag(lobby.user.avatar.url) %>
             <p class="lobby-user text-truncate"><%= lobby.user.nickname %></p>
           </div>
           <div class="text-left w-25">
             <p class="lobby-name text-truncate"><%= lobby.description %></p>
           </div>
 
-          <div class="lobbymode text-center w-25 text-truncate casualclass <%= 'competitiveclass' if lobby.competitive? == true%>">
+          <div class="lobbymode text-center w-25 text-truncate casualclass <%= 'competitiveclass' if lobby.competitive? == true %>">
             <%= (lobby.competitive? ? 'Competitive' : 'Casual') %>
           </div>
 
           <div class="d-flex lobby-info-holder align-items-center justify-content-end numberholder">
-            <p class="lobby-players "><%= lobby.sessions.count %>/<%= lobby.max_players ? lobby.max_players : "?" %></p>
+            <p class="lobby-players "><%= lobby.sessions.select(&:active?).count %>/<%= lobby.max_players ? lobby.max_players : "??" %></p>
             <i class="fas fa-user-alt"></i>
           </div>
         </div>
