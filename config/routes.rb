@@ -14,7 +14,9 @@ Rails.application.routes.draw do
   resources :lobbies, except: %i[index new create]
 
   resources :games do
+    post 'favorites/add_favorite/', to: 'favorites#add_favorite', as: 'add_favorite'
     resources :lobbies, only: %i[index new create]
+    resources :favorites, only: %i[update]
   end
 
   resources :favorites, only: [:new, :create]
