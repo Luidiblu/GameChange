@@ -6,7 +6,6 @@
     <% end %>
   </div>
 </div>
-a
 <div class="container">
   <div class="lobbyamount">
     <h3 class="lobbyavaliable mb-4 mt-3"><%= @game.lobbies.select{ |l| l.max_players > l.sessions.count }.count %> Lobbies Avaliables.</h3>
@@ -20,24 +19,21 @@ a
             <%=cl_image_tag(lobby.user.avatar) %>
             <p class="lobby-user text-truncate"><%= lobby.user.nickname %></p>
           </div>
-
           <div class="text-left w-25">
             <p class="lobby-name text-truncate"><%= lobby.description %></p>
           </div>
 
-          <div class="lobbymode text-center w-25 text-truncate">
-              <%= (lobby.competitive? ? 'Competitive' : 'Casual') %>
+          <div class="lobbymode text-center w-25 text-truncate casualclass <%= 'competitiveclass' if lobby.competitive? == true%>">
+            <%= (lobby.competitive? ? 'Competitive' : 'Casual') %>
           </div>
 
           <div class="d-flex lobby-info-holder align-items-center justify-content-end numberholder">
             <p class="lobby-players "><%= lobby.sessions.count %>/<%= lobby.max_players ? lobby.max_players : "?" %></p>
             <i class="fas fa-user-alt"></i>
           </div>
-
         </div>
       <% end %>
     </li>
-
     <hr>
   <% end %>
 </div>
