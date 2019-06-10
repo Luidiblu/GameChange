@@ -87,14 +87,13 @@ class LobbiesController < ApplicationController
 
     # raise
 
-    if current_user == @lobby.user
-      if @lobby.sessions.select(&:active?).count.positive?
+    if @lobby.sessions.select(&:active?).count.positive?
+      if current_user == @lobby.user
         @lobby.move_admin
-      else
-        raise
-        @lobby.active = false
-        @lobby.save
       end
+    else
+      @lobby.active = false
+      @lobby.save
     end
     redirect_to game
   end
