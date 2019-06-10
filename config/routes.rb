@@ -19,5 +19,5 @@ Rails.application.routes.draw do
 
   resources :favorites, only: [:new, :create]
 
-  post "/games/:id", to: 'lobbies#exit_lobby', as: :exit_lobby_path
+  post "/games/:id", to: 'lobbies#exit_lobby', as: 'exit_lobby'
 end
