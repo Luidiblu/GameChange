@@ -4,6 +4,19 @@
   grid-gap: 16px;
 }
 
+@media(max-width: 992px) {
+  .card-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .card-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+
 .card-row {
   padding-top: 15px;
 }
