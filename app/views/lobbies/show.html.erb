@@ -74,16 +74,26 @@
 
     // scrollLastMessageIntoView();
 
-    App['lobby_<%= @lobby.id %>'] = App.cable.subscriptions.create({ channel: 'LobbiesChannel', lobby_id: <%= @lobby.id %> }, { received: (data) => {
-        if (data.current_user_id !== <%= current_user.id %>) {
-          var messagesContainer = document.querySelector('.messages');
-          messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+    App['lobby_<%= @lobby.id %>'] = App.cable.subscriptions.create(
+      { channel: 'LobbiesChannel', lobby_id: <%= @lobby.id %> },
+      {
+        connected: () => {
+          console.log('connected');
+        },
+        disconnected: () => {
+          console.log('disconnected');
+        },
+        received: (data) => {
+          if (data.current_user_id !== <%= current_user.id %>) {
+            var messagesContainer = document.querySelector('.messages');
+            messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
 
 
-          messagesContainer.scrollTop = messagesContainer.scrollHeight;
-          // scrollLastMessageIntoView();
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            // scrollLastMessageIntoView();
+          }
         }
       }
-    })
+    )
   </script>
 <% end %>
