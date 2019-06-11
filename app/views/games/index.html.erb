@@ -24,6 +24,8 @@
     <% end %>
   </div>
   <br>
-  <%= link_to "new", new_game_path, class: "btn btn-primary" %>
+  <% if current_user.admin? %>
+    <%= link_to "new", new_game_path, class: "btn btn-primary" %>
+  <% end %>
 </div>
 <br>

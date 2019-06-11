@@ -1,31 +1,71 @@
-<div class="backgroundbanner">
-  <div class="container d-flex flex-column" style="
-    height: 100%; justify-content: center; align-items: center;">
-    <div class="bannertext text-center">
-      <span id="typed-text"></span>
-      <span id="typed"></span>
-    </div>
-    <div class="btn-group">
-      <% if user_signed_in? %>
-      <div class="row">
-        <div class="col-12 col-lg-6 text-center">
-          <%= link_to "Browse Games", games_path, class: "landing1-btn" %>
-        </div>
-        <div class="col-12 col-lg-6 text-center">
-          <%= link_to "Your Profile", profile_path(current_user), class: "landing1-btn" %>
-        </div>
+<section class="scrollify">
+  <div class="backgroundbanner">
+    <div class="container d-flex flex-column" style="height: 100%; justify-content: center; align-items: center;">
+      <div class="bannertext text-center">
+        <span id="typed-text"></span>
+        <span id="typed"></span>
       </div>
-      <% else %>
-      <div class="row">
-        <div class="col-12 col-lg-6 text-center">
-        <%= link_to "Sign Up", new_user_registration_path, class: "landing1-btn" %>
-        </div>
-        <div class="col-12 col-lg-6 text-center">
-          <%= link_to "Browse Games", new_user_session_path, class: "landing1-btn" %>
-        </div>
+      <div class="btn-group">
+        <% if user_signed_in? %>
+          <div class="row">
+            <div class="col-12 col-lg-6 text-center">
+              <%= link_to "Browse Games", games_path, class: "landing1-btn" %>
+            </div>
+            <div class="col-12 col-lg-6 text-center">
+              <%= link_to "Your Profile", profile_path(current_user), class: "landing1-btn" %>
+            </div>
+          </div>
+        <% else %>
+          <div class="row">
+            <div class="col-12 col-lg-6 text-center">
+              <%= link_to "Sign Up", new_user_registration_path, class: "landing1-btn" %>
+            </div>
+            <div class="col-12 col-lg-6 text-center">
+              <%= link_to "Browse Games", new_user_session_path, class: "landing1-btn" %>
+            </div>
+          </div>
+        <% end %>
       </div>
-      <% end %>
     </div>
   </div>
-</div>
-<%= render 'shared/footer' %>
+</section>
+
+<section class="scrollify page-section" id="services">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 text-center">
+        <h1 class="section-heading text-uppercase">Teewee</h1>
+        <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+      </div>
+    </div>
+    <hr class="divider my-2 mb-3 pt-1">
+    <div class="row grid-divider">
+      <div class="col-sm-12 col-md-6 col-lg-4 my-1 p-2 text-center">
+        <div class="mt-5">
+          <i class="fas fa-4x fa-search mb-4"></i>
+          <h3 class="h4 mb-2">SEARCH</h3>
+          <p class="text-muted mb-0">Procure um jogo que você quer jogar, procure entre os lobbies disponíveis em cada jogo conforme sua vontade e objetivo.</p>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 my-1 text-center">
+        <div class="mt-5">
+          <i class="fas fa-4x fa-headset mb-4"></i>
+          <h3 class="h4 mb-2">JOIN</h3>
+          <p class="text-muted mb-0">Entre em um lobby para poder se comunicar com outros players e jogar juntos.</p>
+        </div>
+      </div>
+      <div class="col-sm-12 col-md-6 col-lg-4 my-1 text-center">
+        <div class="mt-5">
+          <i class="fas fa-4x fa-gamepad mb-4"></i>
+          <h3 class="h4 mb-2">PLAY</h3>
+          <p class="text-muted mb-0">Jogue com os players do lobby e tenha muita diversão!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <%= render 'shared/footer' %>
+</section>
+
+
+
+<%= javascript_pack_tag 'jquery-scrollify' %>
