@@ -111,8 +111,10 @@ class LobbiesController < ApplicationController
   end
 
   def set_lobby
-    @lobby = Lobby.find(params[:id])
+    @lobby = Lobby.includes(messages: :user).find(params[:id])
+
     l_users = @lobby.sessions.select(&:active?).map(&:user)
+
     unless @lobby.active
       flash[:notice] = "This lobby cannot be reached!"
       redirect_to @lobby.game

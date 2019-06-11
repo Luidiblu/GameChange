@@ -1,6 +1,7 @@
 class Lobby < ApplicationRecord
   has_many :sessions
   has_many :users, through: :sessions
+  has_many :messages
 
   belongs_to :game
   belongs_to :user
