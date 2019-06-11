@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_10_182806) do
+ActiveRecord::Schema.define(version: 2019_06_11_140334) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_06_10_182806) do
   end
 
   create_table "lobbies", force: :cascade do |t|
-    t.boolean "active", default: true
+    t.boolean "active"
     t.boolean "competitive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -42,6 +42,16 @@ ActiveRecord::Schema.define(version: 2019_06_10_182806) do
     t.bigint "user_id"
     t.index ["game_id"], name: "index_lobbies_on_game_id"
     t.index ["user_id"], name: "index_lobbies_on_user_id"
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "lobby_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["lobby_id"], name: "index_messages_on_lobby_id"
+    t.index ["user_id"], name: "index_messages_on_user_id"
   end
 
   create_table "sessions", force: :cascade do |t|
@@ -77,6 +87,8 @@ ActiveRecord::Schema.define(version: 2019_06_10_182806) do
   add_foreign_key "favorites", "users"
   add_foreign_key "lobbies", "games"
   add_foreign_key "lobbies", "users"
+  add_foreign_key "messages", "lobbies"
+  add_foreign_key "messages", "users"
   add_foreign_key "sessions", "lobbies"
   add_foreign_key "sessions", "users"
 end
