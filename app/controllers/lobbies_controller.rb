@@ -8,6 +8,11 @@ class LobbiesController < ApplicationController
 
   def show
     @owner = @lobby.user
+
+    unless @lobby.sessions.where(active: true).map(&:user).include? current_user
+      flash[:notice] = "You may not see this lobby right now"
+      redirect_to @lobby.game
+    end
   end
 
   def new
@@ -53,7 +58,7 @@ class LobbiesController < ApplicationController
   end
 
   def enter_lobby
-    member = @lobby.sessions.select(&:active?).map(&:user).flatten.include? current_user
+    member = @lobby.sessions.where(active: true).map(&:user).flatten.include? current_user
 
     if @lobby.user_allowed?(current_user) || member
       unless member
@@ -79,21 +84,21 @@ class LobbiesController < ApplicationController
   end
 
   def exit_lobby
-    new_inactive_session = current_user.sessions.select(&:active?).first
-    new_inactive_session.active = false
-    new_inactive_session.save
-
     game = @lobby.game
 
+    new_inactive_session = current_user.sessions.find_by(lobby: @lobby)
+    new_inactive_session.active = false
+    new_inactive_session.save
     # raise
 
     if current_user == @lobby.user
-      if @lobby.sessions.select(&:active?).count.positive?
+      if @lobby.sessions.where(active: true).count.positive?
         @lobby.move_admin
+        # raise
       else
-        raise
         @lobby.active = false
         @lobby.save
+        # raise
       end
     end
     redirect_to game
@@ -108,11 +113,10 @@ class LobbiesController < ApplicationController
   def set_lobby
     @lobby = Lobby.find(params[:id])
     l_users = @lobby.sessions.select(&:active?).map(&:user)
-    unless @lobby.active && l_users.include?(current_user)
+    unless @lobby.active
       flash[:notice] = "This lobby cannot be reached!"
       redirect_to @lobby.game
     end
-
   end
 
   def lobby_params

@@ -1,7 +1,16 @@
 /* Cursor */
-.typed-cursor {
-  color: white;
-  font-size: 50px;
+@media (min-width: 992px) {
+  .typed-cursor {
+    color: white;
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .typed-cursor {
+    color: white;
+    font-size: 50px;
+  }
 }
 
 /* If fade out option is set */
@@ -9,13 +18,21 @@
   color: white;
 }
 
-#typed-text {
+@media (min-width: 992px) {
+  #typed-text {
   color: white;
-  font-size: 50px;
+  font-size: 5rem;
   font-weight: bold;
-
+  }
 }
 
+@media (max-width: 992px) {
+  #typed-text {
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+  }
+}
 // background0
 
 .bannertext {
@@ -26,7 +43,7 @@
 
 .backgroundbanner {
   background-image: linear-gradient(rgba(20, 8, 10, 0.75), rgba(20, 8,10, 0.4)), url("https://i.pinimg.com/originals/95/69/dd/9569dd8d39abff785045f5b3f0332d63.jpg");
-  background-position: center;
+  //background-position: center;
   height: calc(100vh - 50px);
   background-size: cover;
 }

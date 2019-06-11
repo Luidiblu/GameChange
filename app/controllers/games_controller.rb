@@ -11,7 +11,11 @@ class GamesController < ApplicationController
   end
 
   def new
-    @game = Game.new
+    if current_user.admin?
+      @game = Game.new
+    else
+      redirect_to games_path
+    end
   end
 
   def show
@@ -21,6 +25,8 @@ class GamesController < ApplicationController
       # if @favorite.save
       # end
 
+    @available = @game.lobbies.select { |l| l.max_players > l.sessions.where(active: true).count && l.active? }.count
+    # raise
   end
 
   def edit; end
