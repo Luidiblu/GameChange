@@ -11,7 +11,11 @@ class GamesController < ApplicationController
   end
 
   def new
-    @game = Game.new
+    if current_user.admin?
+      @game = Game.new
+    else
+      redirect_to games_path
+    end
   end
 
   def show
