@@ -1,3 +1,4 @@
+<div class="container">
 <%= simple_form_for @game do |f| %>
 
   <div class="forom-inputs">
@@ -11,3 +12,4 @@
     <%= f.button :submit, (@game.persisted? ? "Update the game" : "Add a Game"), class: "w-100 btn-primary" %>
   </div>
 <% end %>
+</div>
