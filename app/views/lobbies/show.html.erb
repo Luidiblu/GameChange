@@ -1,10 +1,10 @@
 <div class="container mt-5">
   <div class="row my-2">
-    <div class="col-3">
-      <%= link_to "Exit this lobby", exit_lobby_path(@lobby), method: :post, class: "btn btn-danger w-100" %>
-    </div>
     <div class="col-6">
       <p class="text-truncate w-100"><%= @lobby.description %></p>
+    </div>
+    <div class="col-3">
+      <%= link_to "Exit this lobby", exit_lobby_path(@lobby), method: :post, class: "btn btn-danger w-100" %>
     </div>
     <div class="col-3">
       <%= link_to "Edit the Lobby", edit_lobby_path(@lobby), class: "btn btn-warning w-100" %>
@@ -22,11 +22,11 @@
 
         <div class="inside-game-lobby text-center">
           <p class="lobby-gamename-show text-truncate"><%= @lobby.game.name %></p>
-          <p class="lobby-gamename-show text-truncate"><%= @lobby.description %></p>
-          <div class="lobby-playersnumber-show">
-            <i class="fas fa-user-alt playersinlobby"></i>
-            <p><%= @lobby.users.count %></p>
-            <i class="fas fa-user-alt" style="color: black;"></i>
+          <p class="lobby-gamename-show text-truncate"><%= @lobby.competitive ? 'Competitive' : 'Casual' %></p>
+          <div class="d-flex lobby-playersnumber-show justify-content-center">
+            <i class="fas fa-user-alt playersinlobby mr-2"></i>
+            <p class="mr-2"><%= @lobby.users.count %></p>
+            <i class="fas fa-user-alt mr-2" style="color: black;"></i>
             <p><%= @lobby.max_players - @lobby.users.count %></p>
           </div>
         </div>
@@ -37,7 +37,9 @@
       <% @lobby.sessions.select(&:active?).each do |active_session| %>
         <%= link_to profile_path(active_session.user) do %>
         <div class="shadow avatarplayercard text-truncate lobby-gamename-show <%= 'border border-warning' if active_session.user == @owner %>">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/Luidiblu", class: "avatar" %>
+
+          <%= cl_image_tag(active_session.user.avatar.file.nil? ? "avatarsample.png" : active_session.user.avatar , class: "avatar") %>
+
           <%= active_session.user.nickname %>
         </div>
         <% end %>
@@ -45,7 +47,7 @@
     </div>
 
     <div class="col-9 col-lg-6">
-      <div class="messages">
+  <div class="messages">
         <% @lobby.messages.each do |message| %>
           <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
         <% end %>
@@ -58,6 +60,9 @@
       </div>
     </div>
   </div>
+
+
+
 </div>
 <% content_for :after_js do %>
   <script>
