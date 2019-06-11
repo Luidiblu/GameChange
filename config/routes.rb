@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  mount ActionCable.server => "/cable"
-
   devise_for :users, controllers: {
         registrations: 'users/registrations'
       }
@@ -26,4 +24,7 @@ Rails.application.routes.draw do
 
   post "/enter_lobby/:id", to: 'lobbies#enter_lobby', as: 'enter_lobby'
   post "/exit_lobby/:id", to: 'lobbies#exit_lobby', as: 'exit_lobby'
+
+  mount ActionCable.server => "/cable"
+
 end
