@@ -20,11 +20,14 @@
     }
   }
 }
-.message-content {
+#message_content {
   background-color: #F7F7F7;
   border-radius: 3px;
-  margin: 0 10px;
-  padding: 11px 10px 8px 10px;
+  // margin: 0 10px;
+  // padding: 11px 10px 8px 10px;
+  // position: fixed;
+  // bottom: 0;
+  max-width: 100%;
 }
 .avatar {
   width: 42px;
@@ -38,8 +41,12 @@
   margin-bottom: 20px;
   border: 1px solid #ececec;
 }
-.message_content {
+.message-content {
   margin-bottom: 0;
+  word-break: break-word;
+  background-color: wheat;
+  max-width: 60%;
+  border-radius: 3px;
 }
 input.form-control {
   border: 1px solid #ECECEC;
