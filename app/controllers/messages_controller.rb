@@ -6,6 +6,9 @@ class MessagesController < ApplicationController
     @message.lobby = @lobby
 
     if @message.save
+      ActionCable.server.broadcast("lobby_#{@lobby.id}", {
+                                                           message: @message.to_json
+                                                         })
       respond_to do |format|
         format.html { redirect_to lobby_path(@lobby) }
         format.js
