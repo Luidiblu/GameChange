@@ -6,17 +6,6 @@
   <div class="div">
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
-        <li class="nav-item active">
-          <div class="searchbox">
-            <%= form_tag games_path, method: :get, class: "searchbar" do %>
-            <%= text_field_tag :query,
-                params[:query],
-                class: "form-control",
-                style: "border-radius: 40px;",
-                placeholder: "Search a game" %>
-            <% end %>
-          </div>
-        </li>
         <li class="nav-item dropdown">
 
             <% if current_user.avatar.file.nil? %>
