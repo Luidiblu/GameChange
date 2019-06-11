@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div class="row my-2">
     <div class="col-3">
-      <%= link_to "Exit this lobby", exit_lobby_path(@lobby), method: :post, class: "btn btn-danger" %>
+      <%= link_to "Exit this lobby", exit_lobby_path(@lobby), method: :post, class: "btn btn-danger w-100" %>
     </div>
     <div class="col-6">
       <p class="text-truncate w-100"><%= @lobby.description %></p>
