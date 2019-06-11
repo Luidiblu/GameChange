@@ -19,7 +19,8 @@ class Message < ApplicationRecord
           message: self,
           user_is_messages_author: false
         }
-      )
+      ),
+      current_user_id: self.user.id
     )
   end
 end
