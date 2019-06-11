@@ -1,5 +1,5 @@
 body {
-  background-color: #36393F;
+  background-color: #E0E0E0;
   min-height: 100vh;
   position: relative;
 }
@@ -35,7 +35,7 @@ a {
 
 .landing1-btn:hover{
   user-select: none;
-  background-color: #EBE9E9;
+  background-color: #2978A0;
   white-space: nowrap;
   margin: 4px;
   min-width: 280px;
@@ -43,10 +43,10 @@ a {
   vertical-align: middle;
   text-align: center;
   text-decoration: none;
-  color: #e6821a  ;
+  color: #FFF;
   line-height: 24px;
   padding: 38px 42px;
-  border: 1px solid hsla(0,0%,100%,.8);
+  border: 1px solid #2978A0;
   padding: 10px 0px 10px;
   border-radius: 5px;
   font-weight: bold;
@@ -70,12 +70,12 @@ a {
     text-transform: none;
   }
   hr.divider{
-    background-color: orange;
+    background-color: #607b7D;
     border: none;
     height: 1px;
   }
   i.fas{
-    color: orange;
+    color: #607b7D;
   }
 
 @media(min-width:768px) {
@@ -98,7 +98,7 @@ a {
 
 .grid-divider > [class*="col-"]:nth-child(n + 2):after {
   content: "";
-  background-color: orange;
+  background-color: #607b7D;
   padding: 2;
   position: absolute;
   top: 0;

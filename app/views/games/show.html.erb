@@ -1,19 +1,33 @@
 <div class="game_banner_show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path(@game.photo ? @game.photo : "https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png") %>)" >
-  <%= link_to game_add_favorite_path(@game), method: :post do %>
-    <button type="button" name="button" class="btn btn-danger">Favorite</button>
-  <% end %>
+
   <div class="container">
-    <h1> <%= @game.name %> </h1>
-    <%= link_to new_game_lobby_path(params[:id]) do %>
-      <button class="btn btn-warning">New Lobby</button>
+    <h1 id="gamename"> <%= @game.name %> </h1>
+    <%= link_to game_add_favorite_path(@game), method: :post do %>
+    <i  class="fas fa-star"></i>
     <% end %>
   </div>
 </div>
+
 <div class="container">
   <div class="lobbyamount">
     <h3 class="lobbyavaliable mb-4 mt-3">Lobbies Avaliable: <%= @game.lobbies.select{ |l| l.max_players > l.sessions.select(&:active?).count && l.active? }.count %></h3>
   </div>
+</div>
 
+<div class="container mb-5">
+<%= link_to new_game_lobby_path(params[:id]) do %>
+  <li class="list-style-none decoration-none">
+    <div class="d-flex lobby-card-1 align-items-center justify-content-around w-100">
+        <div class="d-flex lobby-name-holder w-100 createnewlobby">
+          <p class="lobby-user text-truncate">New Lobby </p>
+          <i class="fas fa-plus-circle lobby-user text-truncate" style="margin-top: 4px;"></i>
+        </div>
+    </div>
+  </li>
+  <% end %>
+</div>
+
+<div class="container">
   <% @game.lobbies.each do |lobby| %>
     <% next unless lobby.active? %>
     <li class="list-style-none decoration-none">

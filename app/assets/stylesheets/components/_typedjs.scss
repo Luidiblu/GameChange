@@ -1,7 +1,16 @@
 /* Cursor */
-.typed-cursor {
-  color: white;
-  font-size: 50px;
+@media (min-width: 992px) {
+  .typed-cursor {
+    color: white;
+    font-size: 5rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .typed-cursor {
+    color: white;
+    font-size: 50px;
+  }
 }
 
 /* If fade out option is set */
@@ -9,13 +18,21 @@
   color: white;
 }
 
-#typed-text {
+@media (min-width: 992px) {
+  #typed-text {
   color: white;
-  font-size: 50px;
+  font-size: 5rem;
   font-weight: bold;
-
+  }
 }
 
+@media (max-width: 992px) {
+  #typed-text {
+  color: white;
+  font-size: 45px;
+  font-weight: bold;
+  }
+}
 // background0
 
 .bannertext {
