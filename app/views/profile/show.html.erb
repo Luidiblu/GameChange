@@ -1,44 +1,43 @@
-<section class="portfolio">
+<section class="profile-page">
 
-  <div class="container-fluid">
+  <!-- Masthead -->
+  <div class="container">
+	 <div class="row userMain">
+       <div class="col-lg-12">
+           <div class="userBlock">
+             <div class="masterhead" style="background-image: url('<%= cl_image_path @user.banner_img, height: 300, width: 400, crop: :fill %>');"></div>
 
-    <div class="row ">
-      <div class="jumbotron-fluid wide-cover-center">
+          <div class="userImg">
+            <%= cl_image_tag(@user.avatar, width: 150, height: 150, crop: :thumb, gravity: :face) %>
+          </div>
+          <div class="userDescription">
+            <h5><%= @user.nickname %></h5>
+            <p><%= @user.name %></p>
 
-        <% if current_user.banner_img.nil? %>
-          <%= cl_image_tag "image-not-found_t5rkhk.png", class: "img-fluid h-75" %>
-        <% else %>
-          <%= cl_image_tag @user.banner_img, class: "img-fluid w-100" %>
-        <% end %>
-
-        <hr>
-
-      </div>
-      <div class="container ">
-
-            <div class="profile-info">
-              <div class="profile-photo-div">
-                <%= cl_image_tag @user.avatar, class: "profile-photo" %>
-              </div>
-
-              <h2 class="profile-name">Name:
-                <%= @user.name%></h2>
-              <h2 class="profile-nickname">Nickname:
-                <%= @user.nickname %></h2>
+            <div class="followrs">
+              <span class="number">137</span>
+              <span>Followers</span>
             </div>
-      </div>
+            <a href="">
+              <button class="btn">Follow</button>
+            </a>
+          </div>
 
+        </div>
+      </div>
     </div>
   </div>
-  </section>
+
+</section>
+
 
 
 <!-- Portfolio Section -->
-<section class="page-section portfolio" id="favorite_games">
-  <div class="container">
+<section class="p-pagesection portfolio" id="favorite_games">
 
+  <div class="container">
     <!-- Portfolio Section Heading -->
-    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">My Games</h2>
+    <h2 class="p-pagesection-heading text-center text-uppercase text-secondary mb-0">My Games</h2>
 
     <!-- Icon Divider -->
     <div class="divider-custom">
