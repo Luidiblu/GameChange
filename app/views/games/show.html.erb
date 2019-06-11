@@ -1,33 +1,31 @@
 <div class="game_banner_show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path(@game.photo ? @game.photo : "https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png") %>)" >
-
+<div class="position-relative">
   <div class="container">
-    <h1 id="gamename"> <%= @game.name %> </h1>
-    <%= link_to game_add_favorite_path(@game), method: :post do %>
-    <i  class="fas fa-star"></i>
-    <% end %>
-  </div>
-</div>
-
-<div class="container">
-  <div class="lobbyamount">
-    <h3 class="lobbyavaliable mb-4 mt-3">Lobbies Avaliable: <%= @available %></h3>
-  </div>
-</div>
-
-<div class="container mb-5">
-<%= link_to new_game_lobby_path(params[:id]) do %>
-  <li class="list-style-none decoration-none">
-    <div class="d-flex lobby-card-1 align-items-center justify-content-around w-100">
-        <div class="d-flex lobby-name-holder w-100 createnewlobby">
-          <p class="lobby-user text-truncate">New Lobby </p>
-          <i class="fas fa-plus-circle lobby-user text-truncate" style="margin-top: 4px;"></i>
-        </div>
+    <div class="d-flex align-items-center justify-content-center">
+      <h1 id="gamename"> <%= @game.name %> </h1>
+      <%= link_to game_add_favorite_path(@game), method: :post do %>
+      <i  class="fas fa-star ml-2"></i>
     </div>
-  </li>
-  <% end %>
+    <% end %>
+    </div>
+  </div>
+    <%= link_to games_path do %>
+    <i class="fas fa-hand-point-left icon-position position-absolute backgame-btn"></i>
+    <p class="fas fa-hand-point-left icon-position position-absolute backgame-btn"> Games</p>
+    <% end %>
 </div>
 
-<div class="container">
+<div class="container borderlobby mt-3">
+  <div class="d-flex gradient-class justify-content-between align-items-center">
+    <h3 class="lobbyavaliable">Lobbies Avaliable: <%= @available %></h3>
+    <%= link_to new_game_lobby_path(params[:id]) do %>
+    <div class="d-flex align-items-center justify-content-around">
+      <h3 class="lobbyavaliable text-truncate mr-1">New Lobby  </h3>
+      <i class="fas fa-plus-circle lobbyavaliable text-truncate"></i>
+    </div>
+  <% end %>
+  </div>
+
   <% @game.lobbies.each do |lobby| %>
     <% next unless lobby.active? %>
     <li class="list-style-none decoration-none">
@@ -51,8 +49,8 @@
             <i class="fas fa-user-alt"></i>
           </div>
         </div>
+      <hr>
       <% end %>
     </li>
-    <hr>
   <% end %>
 </div>
