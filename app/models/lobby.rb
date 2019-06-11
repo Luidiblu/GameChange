@@ -1,6 +1,7 @@
 class Lobby < ApplicationRecord
   has_many :sessions
   has_many :users, through: :sessions
+  has_many :messages
 
   belongs_to :game
   belongs_to :user
@@ -24,7 +25,7 @@ class Lobby < ApplicationRecord
   end
 
   def move_admin
-    self.user = self.sessions.select(&:active?).first.user
+    self.user = self.sessions.find_by(active: true).user
     self.save
   end
 end
