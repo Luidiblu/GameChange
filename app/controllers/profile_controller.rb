@@ -3,6 +3,7 @@ class ProfileController < ApplicationController
   before_action :set_profile, only: %i[show]
 
   def show
+    @favorites = @user.favorites
   end
 
   def create

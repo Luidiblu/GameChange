@@ -1,14 +1,13 @@
-.profile-banner-div {
-  width: 50vh;
+.50vh{
   height: 50vh;
 }
 
-.banner-profile-img {
-  height: 100%;
-  width: 100vw;
+.wide-cover-center {
   background-size: cover;
-  background-position: center;
+  image-resolution: from-image;
+  height: 50%;
 }
+
 
 .profile-photo {
   width: 30vh;

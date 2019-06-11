@@ -1,26 +1,77 @@
-<div class="the_profile">
-  <div class="profile">
+<section class="portfolio">
 
-    <div class="profile-banner-div">
-      <% if current_user.banner_img.nil? %>
-        <%= cl_image_tag "image-not-found_t5rkhk.png", class: "banner-profile-img" %>
-      <% else %>
-        <%= cl_image_tag @user.banner_img, class: "banner-profile-img" %>
-      <% end %>
-    </div>
+  <div class="container-fluid">
 
-     <hr>
+    <div class="row ">
+      <div class="jumbotron-fluid wide-cover-center">
 
-    <div class="profile-info">
-      <div class="profile-photo-div">
-        <%= cl_image_tag @user.avatar, class: "profile-photo" %>
+        <% if current_user.banner_img.nil? %>
+          <%= cl_image_tag "image-not-found_t5rkhk.png", class: "img-fluid h-75" %>
+        <% else %>
+          <%= cl_image_tag @user.banner_img, class: "img-fluid w-100" %>
+        <% end %>
+
+        <hr>
+
+      </div>
+      <div class="container ">
+
+            <div class="profile-info">
+              <div class="profile-photo-div">
+                <%= cl_image_tag @user.avatar, class: "profile-photo" %>
+              </div>
+
+              <h2 class="profile-name">Name:
+                <%= @user.name%></h2>
+              <h2 class="profile-nickname">Nickname:
+                <%= @user.nickname %></h2>
+            </div>
       </div>
 
-      <h2 class="profile-name">Name: <%= @user.name%></h2>
-      <h2 class="profile-nickname">Nickname: <%= @user.nickname %></h2>
     </div>
   </div>
-</div>
+  </section>
 
-<div class="container">
-</div>
+
+<!-- Portfolio Section -->
+<section class="page-section portfolio" id="favorite_games">
+  <div class="container">
+
+    <!-- Portfolio Section Heading -->
+    <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">My Games</h2>
+
+    <!-- Icon Divider -->
+    <div class="divider-custom">
+      <div class="divider-custom-line"></div>
+      <div class="divider-custom-icon">
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="divider-custom-line"></div>
+    </div>
+
+    <!-- Portfolio Grid Items -->
+    <div class="container">
+
+      <div class="row align-center">
+
+        <% @favorites.each do  |fav|  %>
+
+          <!-- Portfolio Item -->
+          <div class="col-md-6 col-lg-4">
+            <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
+              <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                <div class="portfolio-item-caption-content text-center text-white">
+                  <i class="fas fa-plus fa-3x"></i>
+                </div>
+              </div>
+              <%= cl_image_tag fav.game.photo, class: "img-fluid" %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
+      <!-- /.row -->
+    </div>
+
+  </div>
+</section>
