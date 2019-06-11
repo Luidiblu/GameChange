@@ -18,13 +18,26 @@
   padding: 180px 0px;
  }
 
-.game_banner_show h1 {
+@media (min-width: 992px) {
+  .game_banner_show h1 {
+    margin: 0;
+    color: white;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    font-size: 5rem;
+    font-weight: bold;
+  }
+}
+
+@media (max-width: 992px) {
+  .game_banner_show h1 {
   margin: 0;
   color: white;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   font-size: 32px;
   font-weight: bold;
+  }
 }
+
 
 .lobby-name {
   color: white;
@@ -88,7 +101,7 @@ margin-bottom: 0px;
 }
 
 .fa-user-alt {
-  color: #e6821a;
+  color: #607B7D;
 }
 
 .competitiveclass {
@@ -97,9 +110,18 @@ margin-bottom: 0px;
 }
 
 .casualclass {
-  color: #e6821a;
+  color: #607B7D;
   font-weight: bold;
 }
  .numberholder {
   width: 5%;
  }
+
+.fa-star {
+  color: yellow;
+  font-size: 70px;
+}
+
+.createnewlobby {
+  justify-content: center;
+}
