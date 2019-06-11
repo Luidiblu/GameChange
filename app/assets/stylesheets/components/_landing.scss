@@ -70,12 +70,12 @@ a {
     text-transform: none;
   }
   hr.divider{
-    background-color: #607b7D;
+    background-color: #2978A0;
     border: none;
     height: 1px;
   }
   i.fas{
-    color: #607b7D;
+    color: #2978A0;
   }
 
 @media(min-width:768px) {
@@ -98,7 +98,7 @@ a {
 
 .grid-divider > [class*="col-"]:nth-child(n + 2):after {
   content: "";
-  background-color: #607b7D;
+  background-color: #2978A0;
   padding: 2;
   position: absolute;
   top: 0;

@@ -24,7 +24,7 @@ margin: auto;
 
 .logintitle {
   text-align: center;
-  color: #607B7D;
+  color: #2978A0;
   padding-right: 150px;
   padding-left: 150px;
 }
@@ -36,18 +36,20 @@ margin: auto;
 .form-control:focus {
     color: #495057;
     background-color: #fff;
-    border-color: #607B7D;
+    border-color: #2978A0;
     outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(230, 130, 26, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(41, 120, 160, 0.25);
 }
 
 .btn-gamechanger {
   border-radius: 30px;
-  background-color: #607B7D;
+  background-color: #2978A0;
+  color: white;
   width: 100%;
   font-weight: medium;
 }
 
 .btn-gamechanger:hover {
-  background-color: #DF842A;
+  color: white;
+  background-color: #2978A0;
 }
