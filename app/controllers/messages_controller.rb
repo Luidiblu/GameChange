@@ -6,15 +6,6 @@ class MessagesController < ApplicationController
     @message.lobby = @lobby
 
     if @message.save
-
-      ActionCable.server.broadcast(
-        "lobby_#{@lobby.id}",
-        message_partial: render(
-          partial: 'messages/message',
-          locals: { message: @message }
-        )
-      )
-
       respond_to do |format|
         format.html { redirect_to lobby_path(@lobby) }
         format.js

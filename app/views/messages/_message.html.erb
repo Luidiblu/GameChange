@@ -1,6 +1,6 @@
-<div class="message <%= message.from?(current_user) ? 'right' : '' %>">
+<div class="message <%= user_is_messages_author ? 'right' : '' %>">
   <%= cl_image_tag(message.user.avatar, class: "avatar") %>
-  <div class="message-content">
+  <div class="message_content">
     <%= message.content %>
   </div>
 </div>
