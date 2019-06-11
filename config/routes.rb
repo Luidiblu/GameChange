@@ -11,7 +11,9 @@ Rails.application.routes.draw do
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  resources :lobbies, except: %i[index new create]
+  resources :lobbies, except: %i[index new create] do
+    resources :messages, only: %i[create]
+  end
 
   resources :games do
     post 'favorites/add_favorite/', to: 'favorites#add_favorite', as: 'add_favorite'
