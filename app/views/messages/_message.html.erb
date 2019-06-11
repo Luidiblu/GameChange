@@ -1,0 +1,7 @@
+<div class="message <%= user_is_messages_author ? 'right' : '' %>">
+  <%= cl_image_tag(message.user.avatar.file.nil? ? "avatarsample.png" : message.user.avatar , class: "avatar mx-3") %>
+
+  <div class="message-content p-3">
+    <%= message.content %>
+  </div>
+</div>
