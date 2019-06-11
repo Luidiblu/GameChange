@@ -45,7 +45,13 @@
     </div>
 
     <div class="col-9 col-lg-6">
-      <div class="shadow">
+      <div class="chat-header">
+        <h4><%= @lobby.description %></h4>
+      </div>
+      <div class="messages">
+        <% @lobby.messages.each do |message| %>
+          <%= render "messages/message", message: message %>
+        <% end %>
       </div>
     </div>
   </div>
