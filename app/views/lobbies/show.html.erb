@@ -67,8 +67,10 @@
 <% content_for :after_js do %>
   <script>
     App['lobby_<%= @lobby.id %>'] = App.cable.subscriptions.create({ channel: 'LobbiesChannel', lobby_id: <%= @lobby.id %> }, { received: (data) => {
-        var messagesContainer = document.querySelector('.messages');
-        messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+        if (data.current_user_id !== <%= current_user.id %>) {
+          var messagesContainer = document.querySelector('.messages');
+          messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+        }
       }
     })
   </script>
