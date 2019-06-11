@@ -48,9 +48,16 @@
       <div class="chat-header">
         <h4><%= @lobby.description %></h4>
       </div>
+
       <div class="messages">
         <% @lobby.messages.each do |message| %>
           <%= render "messages/message", message: message %>
+        <% end %>
+      </div>
+
+      <div class="create-message">
+        <%= simple_form_for [ @lobby, Message.new ], remote: true do |f| %>
+          <%= f.input :content, label: false %>
         <% end %>
       </div>
     </div>
