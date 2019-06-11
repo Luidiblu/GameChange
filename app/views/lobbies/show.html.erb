@@ -45,13 +45,40 @@
     </div>
 
     <div class="col-9 col-lg-6">
-      <div class="shadow">
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut eveniet quidem eos, esse nemo iure pariatur consequatur minus ex error velit adipisci reprehenderit provident sed. Vel perspiciatis sequi voluptates, minus.
-        <br>
-        =#=#=#=#=#=#=#= BLOCO PARA O CHAT =#=#=#=#=#=#=#=
-        <br>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus facilis voluptatum repellat, fuga quos expedita mollitia natus. Alias voluptas distinctio id rerum eaque iure, esse quidem cumque, velit dolorum incidunt.
+      <div class="messages">
+        <% @lobby.messages.each do |message| %>
+          <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
+        <% end %>
+      </div>
+
+      <div class="create-message">
+        <%= simple_form_for [ @lobby, Message.new ], remote: true do |f| %>
+          <%= f.input :content, as: :string, label: false %>
+        <% end %>
       </div>
     </div>
   </div>
 </div>
+<% content_for :after_js do %>
+  <script>
+    // const scrollLastMessageIntoView = () => {
+    //   const messages = document.querySelectorAll('.message');
+    //   const lastMessage = messages[messages.length - 1];
+    //   lastMessage.scrollIntoView();
+    // }
+
+    // scrollLastMessageIntoView();
+
+    App['lobby_<%= @lobby.id %>'] = App.cable.subscriptions.create({ channel: 'LobbiesChannel', lobby_id: <%= @lobby.id %> }, { received: (data) => {
+        if (data.current_user_id !== <%= current_user.id %>) {
+          var messagesContainer = document.querySelector('.messages');
+          messagesContainer.insertAdjacentHTML('beforeend', data.message_partial);
+
+
+          messagesContainer.scrollTop = messagesContainer.scrollHeight;
+          // scrollLastMessageIntoView();
+        }
+      }
+    })
+  </script>
+<% end %>
