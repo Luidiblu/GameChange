@@ -1,17 +1,31 @@
-<%= simple_form_for [@game, @lobby] do |f| %>
+<div class="backgroundlobbyform">
+  <div class="container d-flex flex-column" style="
+    height: 100%; justify-content: center; align-items: center;">
+    <div class="d-flex bannerlobbyform">
+      <div class="lobbyform">
+        <div class="logintitle">
+          <h2>Create a Lobby</h2>
+        </div>
+        <hr>
 
-  <div class="forom-inputs">
-    <%= f.input :description %>
+        <%= simple_form_for [@game, @lobby] do |f| %>
 
-    <% unless @lobby.persisted? %>
-      <%= f.input :competitive, as: :boolean %>
+        <div class="form-inputs">
+          <%= f.input :description %>
 
-      <%= f.input :max_players, collection: Game.game_type_presets.map { |key, value| [key, value] }  %>
-    <% end %>
+          <% unless @lobby.persisted? %>
+            <%= f.input :competitive, as: :boolean %>
 
+            <%= f.input :max_players, collection: Game.game_type_presets.map { |key, value| [key, value] }  %>
+          <% end %>
+
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, @lobby.persisted? ? "Update Lobby" : "Create your Lobby", class: "btn-gamechanger" %>
+        </div>
+        <% end %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, @lobby.persisted? ? "Update Lobby" : "Create your Lobby", class: "btn-primary" %>
-  </div>
-<% end %>
+</div>

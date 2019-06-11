@@ -15,7 +15,7 @@
   </div>
 
   <% @game.lobbies.each do |lobby| %>
-    <% next unless lobby.active %>
+    <% next unless lobby.active? %>
     <li class="list-style-none decoration-none">
       <%= link_to enter_lobby_path(lobby), method: :post do %>
         <div class="d-flex lobby-card-1 align-items-center justify-content-around w-100" style="<% 'background-color: lightred;' if lobby.max_players == lobby.sessions.select(&:active?).count %>">
