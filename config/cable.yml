@@ -6,5 +6,5 @@ test:
 
 production:
   adapter: redis
-  url: <%= ENV['REGISCLOUD_URL'] %>
-  channel_prefix: GameChange_production
+  url: <%= ENV['REDISCLOUD_URL'] %>
+  channel_prefix: catito_production
