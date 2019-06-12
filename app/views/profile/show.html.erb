@@ -5,9 +5,13 @@
     <div class="row userMain">
       <div class="col-lg-12">
         <div class="userBlock">
-          <div class="masterhead shadow p-3 bg-gray rounded img-raised" style="background-image: url('<%= cl_image_path @user.banner_img, height: 300, width: 400, crop: :fill %>');"></div>
+          <% if current_user.banner_img.url.nil?%>
+          <div class="masterhead shadow p-3 bg-gray rounded img-raised" style="background-image: url('<%= cl_image_path "image-not-found_t5rkhk.png", height: 300, width: 400, crop: :fill %>');"></div>
 
-          <div class="userImg">
+        <% else %>
+        <div class="masterhead shadow p-3 bg-gray rounded img-raised" style="background-image: url('<%= cl_image_path @user.banner_img, height: 300, width: 400, crop: :fill %>');"></div>
+      <% end %>
+        <div class="userImg">
             <%= cl_image_tag(@user.avatar, class: 'img-raised', width: 150, height: 150, crop: :thumb, gravity: :face) %>
           </div>
           <div class="userDescription">
