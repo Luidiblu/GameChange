@@ -66,6 +66,56 @@ ass = Game.new(
 )
 record_new(ass)
 
+over = Game.new(
+  name: 'Overwatch',
+  photo: 'https://cdn.europosters.eu/image/750/posters/overwatch-tracer-i30793.jpg'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(over)
+
+fort = Game.new(
+  name: 'Fortnite',
+  photo: 'https://fsa.zobj.net/crop.php?r=euTDnf_1glU4EFkNyAKTNiMtbrnyslya2zsmvuuIoiV_L4Pp8oilmQysRIkHs_O0rjb1F_2R-browmRzYfMboIIdj5retjf3pIQtKoUpXMsdDobO471rMpIKm1PPwHqzTJjlMTJHBzRMj9Vv'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(fort)
+
+rocket = Game.new(
+  name: 'Rocket League',
+  photo: 'https://images-na.ssl-images-amazon.com/images/I/81mK3T9GkGL._AC_SL1500_.jpg'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(rocket)
+
+apex = Game.new(
+  name: 'Apex Legends',
+  photo: 'https://media.playstation.com/is/image/SCEA/apex-legends-box-art-01-ps4-us-31jan19?$native_nt$'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(apex)
+
+rainbow = Game.new(
+  name: 'Rainbow Six Siege',
+  photo: 'https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTco1m1k.boWuR3YBlK0wwWjvjutf4EhA9_oILPck_NXWCykYwADctQ.HYcyq7zYg.HZNhHLjuMl3g9dXDHOTFJ8p2hV31.imNSumwRUJJ0r6T.p6VMEXDDKvZMq7PLgPGa518DcN_JlPlItIM3Z0Y.bZtLB0JNwHAWGH.WFXB_z.w-'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(rainbow)
+
+tf2 = Game.new(
+  name: 'Team Fortress 2',
+  photo: 'http://vgboxart.com/boxes/PC/12898-team-fortress-2-full.jpg'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(tf2)
+
+dota = Game.new(
+  name: 'DOTA 2',
+  photo: 'https://http2.mlstatic.com/codigo-mestre-dota-2-libera-todos-os-itens-D_NQ_NP_910546-MLB30214116102_052019-F.jpg'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(dota)
+
+
 separate
 
 puts "Generating Users:\n\n"
