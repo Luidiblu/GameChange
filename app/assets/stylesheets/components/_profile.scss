@@ -1,24 +1,118 @@
-.profile-banner-div {
-  width: 50vh;
-  height: 50vh;
-}
+// .50vh {
+  // height: 50vh;
+// }
 
-.banner-profile-img {
-  height: 100%;
-  width: 100vw;
+// .wide-cover-center {
+  // background-size: cover;
+  // image-resolution: from-image;
+  // height: 50%;
+  // position: sticky;
+// }
+
+// .profile-photo {
+  // width: 30vh;
+  // height: 30vh;
+  // border-radius: 50%;
+  // object-fit: cover;
+// }
+
+// .p-info {
+  // position: absolute;
+  // top: 30%;
+  // right: 5%;
+// }
+
+.masterhead {
+  height: 65vh;
+  min-height: 350px;
+  background: no-repeat center center scroll;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-  background-position: center;
 }
 
-.profile-photo {
-  width: 30vh;
-  height: 30vh;
-  border-radius: 50%;
-  object-fit: cover;
+
+.profile-page .profile {
+    text-align: center;
 }
 
-.profile-photo-div {
-  position: absolute;
-  top: 35%;
-  right: 5%;
-  }
+//.profile-page .profile-img {
+//    max-width: 160px;
+//    width: 100%;
+//    margin: auto;
+//    -webkit-transform: translate3d(0,-50%,0);
+//    -moz-transform: translate3d(0,-50%,0);
+//    -o-transform: translate3d(0,-50%,0);
+//    -ms-transform: translate3d(0,-50%,0);
+//    transform: translate3d(0,-50%,0);
+//}
+
+.img-raised {
+    box-shadow: 0 5px 15px -8px rgba(0,0,0,.24), 0 8px 10px -5px rgba(0,0,0,.2);
+}
+.userMain .userBlock{
+    float: left;
+    width: 100%;
+    box-shadow: 0px 0px 23px -3px #ccc;
+    padding-bottom: 12px;
+    margin-bottom: 30px;
+    overflow: hidden;
+    background:#fff;
+
+
+}
+.userMain .userBlock .backgrounImg{
+    float: left;
+    overflow: hidden;
+    height: 77px;
+}
+.userMain .userBlock .backgrounImg img{
+    width: auto;
+}
+.userMain .userBlock .userImg{
+    text-align: center;
+}
+.userMain .userBlock .userImg img{
+    width: 80px;
+    height: 80px;
+    margin-top: -39px;
+    border-radius: 100%;
+    border: 5px solid #fff;
+
+}
+.userMain .userBlock .userDescription{
+    text-align: center;
+}
+.userMain .userBlock .userDescription h5{
+    margin-bottom: 2px;
+    font-weight: 600;
+}
+.userMain .userBlock .userDescription p{
+    margin-bottom: 5px;
+}
+.userMain .userBlock .userDescription .btn{
+    padding: 0px 23px 0px 23px;
+    height: 22px;
+    border-radius: 0;
+    font-size: 12px;
+    background: #0198dd;
+    color: #fff;
+}
+.userMain .userBlock .userDescription .btn:hover{
+
+    opacity:0.7;
+}
+
+.userMain .userBlock .followrs{
+    display: inline-flex;
+    margin-right: 10px;
+    border-right: 1px solid #ccc;
+    padding-right: 10px;
+}
+.userMain .userBlock .followrs .number{
+    font-size: 15px;
+    font-weight: bold;
+    margin-right: 5px;
+    margin-top: -1px;
+}

@@ -1,32 +1,48 @@
+.left-btn{
+  position: absolute;
+  left: 5%;
+  top: 90%;
+}
+.back-btn{
+  position: fixed;
+  top: 10%;
+  z-index: 9;
+}
+
 .bannertext1 {
   justify-content: center;
   margin: auto;
   color: #323232;
 }
 
-.backgroundbanner1 {
-  background-image: linear-gradient(rgba(20, 8, 10, 0.75), rgba(20, 8,10, 0.4)), url("https://imgur.com/ByEZMY7.jpg");
-  background-position: center;
-  height: calc(100vh - 50px);
-  background-size: cover;
+.login-bg {
+ background-image: linear-gradient(rgba(20, 8, 10, 0.75), rgba(20, 8,10, 0.4)), url("https://imgur.com/ByEZMY7.jpg");
+//   background-position: center;
+ height: 100vh;
+ background-size: cover;
 }
-
+// .form-control-label{
+//   float: left;
+//   width: 100px;
+//   text-align: left;
+//   margin: 2px 10px;
+// }
 .loginform {
-background-color: #EBE9E9;
-border-radius: 5%;
-padding-right: 90px;
-padding-left: 90px;
-padding-top: 30px;
-padding-bottom: 30px;
-justify-content: center;
-margin: auto;
+ background-color: #EBE9E9;
+ border-radius: 5%;
+// padding-right: 90px;
+// padding-left: 90px;
+// padding-top: 30px;
+ padding-bottom: 5%;
+// justify-content: center;
+ margin: auto;
 }
 
 .logintitle {
   text-align: center;
   color: #2978A0;
-  padding-right: 150px;
-  padding-left: 150px;
+  // padding-right: 150px;
+  // padding-left: 150px;
 }
 
 .aligntextcenter {
