@@ -19,17 +19,20 @@ separate
 
 puts "Cleaning database\n\n"
 
-Game.destroy_all
-puts "#{Game.count} games!"
+Session.destroy_all
+puts "#{Session.count} sessions!"
 
-User.destroy_all
-puts "#{User.count} users!"
+Message.destroy_all
+puts "#{Message.count} messages!"
 
 Lobby.destroy_all
 puts "#{Lobby.count} lobbies!"
 
-Session.destroy_all
-puts "#{Session.count} sessions!"
+User.destroy_all
+puts "#{User.count} users!"
+
+Game.destroy_all
+puts "#{Game.count} games!"
 
 separate
 
