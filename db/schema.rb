@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_140334) do
+ActiveRecord::Schema.define(version: 2019_06_12_140235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,7 @@ ActiveRecord::Schema.define(version: 2019_06_11_140334) do
   end
 
   create_table "lobbies", force: :cascade do |t|
-    t.boolean "active"
+    t.boolean "active", default: true
     t.boolean "competitive"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_06_11_140334) do
     t.string "description"
     t.integer "max_players"
     t.bigint "user_id"
+    t.string "session_token"
+    t.string "generated_token"
     t.index ["game_id"], name: "index_lobbies_on_game_id"
     t.index ["user_id"], name: "index_lobbies_on_user_id"
   end
