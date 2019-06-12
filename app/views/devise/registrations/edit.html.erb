@@ -24,13 +24,13 @@
                 <h2><%= @user.name %></h2>
                 <hr>
                 <!------------------------------------------------------------->
-                <form>
                   <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
                   <%= f.error_notification %>
                   <div class="form-group">
                     <div class="form-row">
                       <div class="col">
-                        <%= f.input :avatar %>
+                        <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+                        <%= f.input :avatar, input_html: { class: 'hidden', id: 'photo-input'}, label_html: { class: 'upload-avatar'}, label: '' %>
                         <%= f.input :avatar_cache, as: :hidden %>
                       </div>
                       <div class="w-100"></div>
@@ -66,7 +66,8 @@
                   <div class="form-row">
                     <div class="col">
                       <div class="card-text">
-                        <%= f.input :banner_img %>
+                        <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
+                        <%= f.input :banner_img, input_html: { class: 'hidden', id: 'photo-input '}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
                         <%= f.input :banner_img_cache, as: :hidden %>
                       </div>
                     </div>
@@ -87,7 +88,6 @@
                 <% end %>
                 <!----------------------------------SIMPLE FORM END--------------------------->
 
-              </form>
               <!----------------------BOOTSTRAP FORM END--------------------------------------->
 
             </div>
@@ -102,6 +102,6 @@
 </div>
 </div>
 <%#= render 'shared/footer' %>
-<%#= javascript_pack_tag 'avatar_preview' %>
+<%# <%= javascript_pack_tag 'avatar_preview' %> %>
 
-<%= javascript_pack_tag 'photo_preview' %>
+<%#= javascript_pack_tag 'photo_preview' %>
