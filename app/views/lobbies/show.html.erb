@@ -103,7 +103,7 @@
 
     var apiKey = <%= ENV['OPENTOK_API_KEY'] %>;
     var sessionId = '<%= @lobby.session_token %>';
-    var token = '<%= @lobby.generated_token %>'
+    var token = '<%= @lobby.generated_token %>';
 
     console.log(sessionId)
 
@@ -118,9 +118,8 @@
       // Create a Publisher
 
       var publisher = OT.initPublisher('publisher', {
-        insertMode: 'append';
-        width: '20%',
-        height: '200px',
+        insertMode: 'append',
+        videoSource: null,
       }, handleError);
 
       // connect to the session
@@ -138,8 +137,7 @@
       session.on('streamCreated', function(event) {
         session.subscribe(event.stream, 'subscriber', {
           insertMode: 'append',
-          width: '80%',
-          height: '500px'
+          videoSource: null,
         }, handleError);
       });
     }
