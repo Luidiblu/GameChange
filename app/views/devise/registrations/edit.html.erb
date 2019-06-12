@@ -1,16 +1,21 @@
-<div class="background-edit-user">
-
-  <div class="container">
+<div class="container-fluid background-edit-user">
+  <!----------------------------------------------->
+  <div class="container d-flex">
+    <!----------------------------------------------->
     <div class="row">
 
-      <div class="col mx-auto float-left back-btn">
-
+      <div class="col mx-auto z-depth float-left back-btn">
         <%= link_to :back do %>
         <i class="fas fa-arrow-circle-left fa-2x"></i>
       <% end %>
     </div>
+  </div>
 
-    <div class="container d-flex flex-column">
+  <div class="row">
+    <!----------------------------------------------->
+    <div class="container d-flex p-3 flex-column">
+      <div class="row">
+
       <div class="col">
         <div class="d-flex bannertext1">
           <div class="loginform text-center">
@@ -18,50 +23,55 @@
               <div class="container">
                 <h2><%= @user.name %></h2>
                 <hr>
-
-                <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-                <%= f.error_notification %>
-                <div class="form-group">
-                  <div class="card-text">
-
-                    <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
-                    <%= f.input :avatar, input_html: { class: 'd-none', id: 'photo-input '}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
-                    <%= f.input :avatar_cache, as: :hidden %>
+                <!------------------------------------------------------------->
+                <form>
+                  <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+                  <%= f.error_notification %>
+                  <div class="form-group">
+                    <div class="form-row">
+                      <div class="col">
+                        <%= f.input :avatar %>
+                        <%= f.input :avatar_cache, as: :hidden %>
+                      </div>
+                      <div class="w-100"></div>
+                    </div>
                   </div>
-                </div>
-
-                <div class="form-group">
-                  <div class="row align-center">
-                    <div class="col mx-auto justify-content-center">
-                      <div class="form-inputs">
-
-                        <%= f.input :email, required: true, autofocus: true, class: 'form-control' %>
-
-                        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-                          <p>Currently waiting confirmation for:
-                            <%= resource.unconfirmed_email %></p>
-                        <% end %>
+                  <!------------------------------------------------------------->
+                  <div class="form-group">
+                    <div class="row align-center">
+                      <div class="col mx-auto justify-content-center">
+                        <div class="form-inputs">
+                          <%= f.input :email, required: true, autofocus: true, class: 'form-control' %>
+                          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                            <p>Currently waiting confirmation for:
+                              <%= resource.unconfirmed_email %></p>
+                          <% end %>
+                        </div>
                       </div>
                     </div>
                   </div>
-
+                  <!------------------------------------------------------------->
+                  <div class="form-group">
+                    <div class="form-row">
+                      <div class="col">
+                        <%= f.input :name, required: false, class: 'form-control' %>
+                      </div>
+                      <div class="col-autofocus"></div>
+                      <div class="col">
+                        <%= f.input :nickname, required: false, class: 'form-control' %>
+                      </div>
+                    </div>
+                  </div>
+                  <!------------------------------------------------------------->
                   <div class="form-row">
                     <div class="col">
-
-                      <%= f.input :name, required: false, class: 'form-control' %>
-                    </div>
-                    <div class="col-autofocus"></div>
-                    <div class="col">
-                      <%= f.input :nickname, required: false, class: 'form-control' %>
+                      <div class="card-text">
+                        <%= f.input :banner_img %>
+                        <%= f.input :banner_img_cache, as: :hidden %>
+                      </div>
                     </div>
                   </div>
-
-                  <div class="card-text">
-                    <%= image_tag "", width: 300, class: "hidden", id: "photo-preview" %>
-                    <%= f.input :banner_img, input_html: { class: 'd-none', id: 'photo-input '}, label_html: { class: 'upload-photo'}, label: '📷 Upload a photo' %>
-                    <%= f.input :banner_img_cache, as: :hidden %>
-                  </div>
-
+                  <!------------------------------------------------------------->
                   <div class="row">
                     <div class="col">
                       <%= f.input :password_confirmation, required: false, input_html: { autocomplete: "new-password" } %>
@@ -69,14 +79,17 @@
                     <div class="col">
                       <%= f.input :current_password, hint: "supply current password to confirm changes", required: true, input_html: { autocomplete: "current-password" } %>
                     </div>
-
                   </div>
+                  <!------------------------------------------------------------->
                   <div class="form-actions">
                     <%= f.button :submit, "Update", class: "btn-gamechanger" %>
                   </div>
                 <% end %>
+                <!----------------------------------SIMPLE FORM END--------------------------->
 
-              </div>
+              </form>
+              <!----------------------BOOTSTRAP FORM END--------------------------------------->
+
             </div>
           </div>
         </div>
@@ -84,15 +97,11 @@
     </div>
   </div>
 
-  <div class="container">
-    <div class="row left-btn mx-auto">
-      <p>Unhappy?
-        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete %>
-      </p>
-    </div>
   </div>
-
 </div>
 </div>
+</div>
+<%#= render 'shared/footer' %>
+<%#= javascript_pack_tag 'avatar_preview' %>
 
 <%= javascript_pack_tag 'photo_preview' %>
