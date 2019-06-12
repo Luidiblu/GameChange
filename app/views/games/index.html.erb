@@ -1,9 +1,9 @@
 <div class="container">
-  <div class="searchbox">
-    <%= form_tag games_path, method: :get, class: "searchbar" do %>
+  <div class="searchbox mt-3">
+    <%= form_tag games_path, method: :get, class: "searchbaar" do %>
         <%= text_field_tag :query,
         params[:query],
-        class: "form-control",
+        class: "form-controol",
         placeholder: "Search "
         %>
     <% end %>
@@ -29,3 +29,4 @@
   <% end %>
 </div>
 <br>
+
