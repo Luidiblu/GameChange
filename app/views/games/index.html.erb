@@ -4,11 +4,11 @@
         <%= text_field_tag :query,
         params[:query],
         class: "form-controol",
-        placeholder: "Search "
+        placeholder: "Search a game"
         %>
     <% end %>
   </div>
-  <div class="card-row" >
+  <div class="card-row mt-2" >
     <% @games.each do |game| %>
       <%= link_to game_path(game) do %>
       <div class="card-space">
