@@ -12,7 +12,7 @@
     <% @games.each do |game| %>
       <%= link_to game_path(game) do %>
       <div class="card-space">
-          <div class="card p-1">
+          <div class="card caard p-1">
             <%= image_tag(game.photo ? game.photo : "http://suiteapp.com/shopflow-1-03-0/img/no_image_available.jpeg", class: "card-img") %>
             <div class="card-body">
               <p class="card-text"><%= game.name %></p>
