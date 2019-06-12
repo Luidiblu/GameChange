@@ -1,23 +1,34 @@
+.left-btn{
+  position: absolute;
+  left: 5%;
+  top: 90%;
+}
+.back-btn{
+  position: fixed;
+  top: 10%;
+
+}
+
 .bannertext1 {
   justify-content: center;
   margin: auto;
   color: #323232;
 }
 
-.backgroundbanner1 {
-  background-image: linear-gradient(rgba(20, 8, 10, 0.75), rgba(20, 8,10, 0.4)), url("https://imgur.com/ByEZMY7.jpg");
-  background-position: center;
-  height: calc(100vh - 50px);
-  background-size: cover;
-}
+// .backgroundbanner1 {
+//   background-image: linear-gradient(rgba(20, 8, 10, 0.75), rgba(20, 8,10, 0.4)), url("https://imgur.com/ByEZMY7.jpg");
+//   background-position: center;
+//   // height: calc(100vh - 50px);
+//   background-size: cover;
+// }
 
 .loginform {
 background-color: #EBE9E9;
 border-radius: 5%;
-padding-right: 90px;
-padding-left: 90px;
-padding-top: 30px;
-padding-bottom: 30px;
+// padding-right: 90px;
+// padding-left: 90px;
+// padding-top: 30px;
+ padding-bottom: 30px;
 justify-content: center;
 margin: auto;
 }
