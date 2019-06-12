@@ -49,13 +49,6 @@
   text-align: center;
 }
 
-.form-control:focus {
-    color: #495057;
-    background-color: #fff;
-    border-color: #2978A0;
-    outline: 0;
-    box-shadow: 0 0 0 0.2rem rgba(41, 120, 160, 0.25);
-}
 
 .btn-gamechanger {
   border-radius: 30px;
@@ -68,4 +61,12 @@
 .btn-gamechanger:hover {
   color: white;
   background-color: #2978A0;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #2978A0;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(41, 120, 160, 0.25);
 }

@@ -121,49 +121,10 @@ margin-bottom: 0px;
 }
 
 
-.backgame-btn{
-  user-select: none;
-  background-color: #fff;
-  left: 70px;
-  top: 80px;
-  white-space: nowrap;
-  margin: 4px;
-  min-width: 280px;
-  font-size: 2rem;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
-  text-decoration: none;
-  line-height: 24px;
-  padding: 30px 42px;
-  border: 1px solid #2978A0;
-  padding: 10px 0px 10px;
-  border-radius: 20px;
-  font-weight: medium;
-}
-
-.backgame-btn:hover{
-  user-select: none;
-  background-color: #2978A0;
-  white-space: nowrap;
-  margin: 4px;
-  min-width: 280px;
-  display: inline-block;
-  vertical-align: middle;
-  text-align: center;
-  text-decoration: none;
-  color: #FFF;
-  line-height: 24px;
-  padding: 38px 42px;
-  padding: 10px 0px 10px;
-  border-radius: 20px;
-  font-weight: bold;
-}
-
 .gradient-class {
 background: #2c3e50;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #486b8e, #3498db);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #486b8e, #3498db);
+background: -webkit-linear-gradient(to right, #29789f, #29789f);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #29789f, #29789f);
 border-top-left-radius: 12px;
 border-top-right-radius: 12px;
 padding-left: 10px;
