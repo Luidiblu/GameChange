@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_06_11_140334) do
+ActiveRecord::Schema.define(version: 2019_06_12_140235) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,6 +40,8 @@ ActiveRecord::Schema.define(version: 2019_06_11_140334) do
     t.string "description"
     t.integer "max_players"
     t.bigint "user_id"
+    t.string "session_token"
+    t.string "generated_token"
     t.index ["game_id"], name: "index_lobbies_on_game_id"
     t.index ["user_id"], name: "index_lobbies_on_user_id"
   end
@@ -75,7 +77,8 @@ ActiveRecord::Schema.define(version: 2019_06_11_140334) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "nickname"
-    t.string "photo"
+    t.string "profile_pic"
+    t.string "banner_pic"
     t.string "banner_img"
     t.string "avatar"
     t.boolean "admin", default: false

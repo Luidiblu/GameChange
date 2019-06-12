@@ -60,10 +60,13 @@
       </div>
     </div>
   </div>
-
-
-
 </div>
+
+<div id="videos">
+  <div id="subscriber">|THE ENEMY'S CAMERA|</div>
+  <div id="publisher"><%= current_user.email %>'s Camera |YOU|</div>
+</div>
+
 <% content_for :after_js do %>
   <script>
     // const scrollLastMessageIntoView = () => {
@@ -95,5 +98,51 @@
         }
       }
     )
+
+    // OpenTok With Deives kakakakjota
+
+    var apiKey = <%= ENV['OPENTOK_API_KEY'] %>;
+    var sessionId = '<%= @lobby.session_token %>';
+    var token = '<%= @lobby.generated_token %>';
+
+    console.log(sessionId)
+
+    const handleError = errors => {
+      console.log('Oops You copied Something wrongly');
+    }
+
+    const initializeSession = () => {
+
+      var session = OT.initSession(apiKey, sessionId);
+
+      // Create a Publisher
+
+      var publisher = OT.initPublisher('publisher', {
+        insertMode: 'append',
+        videoSource: null,
+      }, handleError);
+
+      // connect to the session
+
+      session.connect(token, function(error) {
+        // if the connection is successful, publish to the session
+        if (error) {
+          handleError(error);
+        } else {
+          session.publish(publisher, handleError);
+        }
+      });
+
+      // create subscriber
+      session.on('streamCreated', function(event) {
+        session.subscribe(event.stream, 'subscriber', {
+          insertMode: 'append',
+          videoSource: null,
+        }, handleError);
+      });
+    }
+
+    initializeSession();
+    console.log('Teste Funciona =D')
   </script>
 <% end %>
