@@ -3,21 +3,21 @@
     <div class="col-6">
       <p class="text-truncate w-100"><%= @lobby.description %></p>
     </div>
-    <div class="col-3">
-      <%= link_to "Exit this lobby", exit_lobby_path(@lobby), method: :post, class: "btn btn-danger w-100" %>
-    </div>
-    <div class="col-3">
-      <%= link_to "Edit the Lobby", edit_lobby_path(@lobby), class: "btn btn-warning w-100" %>
-    </div>
+
   </div>
 
-  <div class="row">
-    <div class="col-12 col-lg-3">
-      <div class="shadow">
+  <div class="row justify-content-around">
+    <div class="w-25" style="max-width: 15%;">
+      <div class="bt-1">
         <div class="d-flex align-items-center">
           <div class="card">
             <%= image_tag(@lobby.game.photo, class: "card-img") %>
           </div>
+
+
+
+
+
         </div>
 
         <div class="inside-game-lobby text-center">
@@ -30,23 +30,48 @@
             <p><%= @lobby.max_players - @lobby.users.count %></p>
           </div>
         </div>
+
       </div>
+
+
+      <div class="my-3">
+        <%= link_to "Exit this lobby", exit_lobby_path(@lobby), method: :post, class: "btn btn-danger w-100" %>
+      </div>
+    <div class="my-3">
+      <%= link_to "Edit the Lobby", edit_lobby_path(@lobby), class: "btn btn-warning w-100" %>
     </div>
 
-    <div class="col-3 col-lg-3">
-      <% @lobby.sessions.select(&:active?).each do |active_session| %>
-        <%= link_to profile_path(active_session.user) do %>
-        <div class="shadow avatarplayercard text-truncate lobby-gamename-show <%= 'border border-warning' if active_session.user == @owner %>">
 
-          <%= cl_image_tag(active_session.user.avatar.file.nil? ? "avatarsample.png" : active_session.user.avatar , class: "avatar") %>
 
-          <%= active_session.user.nickname %>
+
+
+
+
+    </div>
+
+    <div class="w-25 d-flex">
+      <div class="w-25">
+        <div id="videos">
+          <div id="publisher" ></div>
+          <div id="subscriber"></div>
         </div>
+      </div>
+      <div class="w-75">
+        <% @lobby.sessions.select(&:active?).each do |active_session| %>
+          <%= link_to profile_path(active_session.user) do %>
+          <div class="shadow avatarplayercard text-truncate lobby-gamename-show <%= 'border border-warning' if active_session.user == @owner %>">
+
+            <%= cl_image_tag(active_session.user.avatar.file.nil? ? "avatarsample.png" : active_session.user.avatar , class: "avatar") %>
+
+            <%= active_session.user.nickname %>
+          </div>
+          <% end %>
         <% end %>
-      <% end %>
+      </div>
+
     </div>
 
-    <div class="col-9 col-lg-6">
+    <div class="w-50">
   <div class="messages">
         <% @lobby.messages.each do |message| %>
           <%= render "messages/message", message: message, user_is_messages_author: message.user == current_user %>
@@ -60,12 +85,8 @@
       </div>
     </div>
   </div>
-</div>
-
-  <div id="videos" class="d-flex justify-content-around align-items-center">
-    <div id="subscriber" class="d-flex justify-content-around align-items-center"></div>
-    <div id="publisher"></div>
   </div>
+
 
 <% content_for :after_js do %>
   <script>
