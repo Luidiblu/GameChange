@@ -60,11 +60,10 @@
       </div>
     </div>
   </div>
-</div>
 
 <div id="videos">
-  <div id="subscriber">|THE ENEMY'S CAMERA|</div>
-  <div id="publisher"><%= current_user.email %>'s Camera |YOU|</div>
+  <div id="subscriber"></div>
+  <div id="publisher"><%= current_user.nickname %></div>
 </div>
 
 <% content_for :after_js do %>
@@ -146,3 +145,4 @@
     console.log('Teste Funciona =D')
   </script>
 <% end %>
+</div>
