@@ -20,4 +20,9 @@ class Game < ApplicationRecord
                   using: {
                     tsearch: { prefix: true }
                   }
+
+
+  def is_user_favorite?(user)
+    Favorite.where(user: user, game: self).exists?
+  end
 end
