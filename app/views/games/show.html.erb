@@ -1,62 +1,93 @@
-<div class="game_banner_show" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path(@game.photo ? @game.photo : "https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png") %>)" >
-<div class="position-relative">
+<!-- Page Header -->
+<header class="masthead" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= image_path(@game.photo ? @game.photo : "https://1080motion.com/wp-content/uploads/2018/06/NoImageFound.jpg.png") %>)" >">
+  <div class="overlay"></div>
   <div class="container">
-    <div class="d-flex align-items-center justify-content-center">
-      <h1 id="gamename"> <%= @game.name %> </h1>
-      <%= link_to game_add_favorite_path(@game), method: :post do %>
-      <i  class="fas fa-star ml-2"></i>
-    </div>
-    <% end %>
+    <div class="row">
+      <div class="col-lg-8 col-md-10 mx-auto">
+        <div class="site-heading">
+          <h1 id="gamename"> <%= @game.name %></h1>
+          <span class="subheading"><%= link_to game_add_favorite_path(@game), method: :post do %>
+            <i  class="fas fa-star ml-2"></i>
+            <% end %>
+          </span>
+        </div>
+      </div>
     </div>
   </div>
-</div>
+</header>
+
 
 <div class="container borderlobby mt-3">
   <div class="d-flex gradient-class justify-content-between align-items-center">
-    <h3 class="lobbyavaliable">Lobbies Avaliable: <%= @available %></h3>
     <%= link_to new_game_lobby_path(params[:id]) do %>
     <div class="d-flex align-items-center justify-content-around">
       <h3 class="lobbyavaliable text-truncate mr-1">New Lobby  </h3>
       <i class="fas fa-plus-circle lobbyavaliable text-truncate"></i>
-    </div>
-  <% end %>
-  </div>
+      <% end %>
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">First</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
 
-  <% @game.lobbies.each do |lobby| %>
-    <% next unless lobby.active? %>
-    <li class="list-style-none decoration-none">
-      <%= link_to enter_lobby_path(lobby), method: :post do %>
-        <div class="d-flex lobby-card-1 align-items-center justify-content-around w-100" style="<% 'background-color: red;' if lobby.max_players == lobby.sessions.where(active: true).count %>">
-          <div class="d-flex lobby-name-holder w-25">
-
-
-          <% if lobby.user.avatar.file.nil? %>
+          <% @game.lobbies.each do |lobby| %>
+          <% next unless lobby.active? %>
+          <%= link_to enter_lobby_path(lobby), method: :post do %>
+          <tr>
+            <td>
+              <% if lobby.user.avatar.file.nil? %>
 
               <%= cl_image_tag "avatarsample.png", class: "gameshowavatar" %>
 
-            <% else %>
+              <% else %>
 
-            <%=cl_image_tag(lobby.user.avatar, class: "gameshowavatar") %>
+              <%=cl_image_tag(lobby.user.avatar, class: "gameshowavatar") %>
 
-            <% end %>
+              <% end %>
+            </td>
+            <td>
+              <p class="lobby-user text-truncate"><%= lobby.user.nickname %></p>
+            </td>
+            <td><p class="lobby-name text-truncate"><%= lobby.description %></p></td>
+          </tr>
 
-            <p class="lobby-user text-truncate"><%= lobby.user.nickname %></p>
-          </div>
-          <div class="text-left w-25">
-            <p class="lobby-name text-truncate"><%= lobby.description %></p>
-          </div>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-          <div class="lobbymode text-center w-25 text-truncate casualclass <%= 'competitiveclass' if lobby.competitive? == true %>">
-            <%= (lobby.competitive? ? 'Competitive' : 'Casual') %>
-          </div>
 
-          <div class="d-flex lobby-info-holder align-items-center justify-content-end numberholder">
-            <p class="lobby-players "><%= lobby.sessions.where(active: true).count %>/<%= lobby.max_players ? lobby.max_players : "??" %></p>
-            <i class="fas fa-user-alt"></i>
-          </div>
-        </div>
-      <hr>
-      <% end %>
-    </li>
+  <li class="list-style-none decoration-none">
+
+    <div class="d-flex lobby-card-1 align-items-center justify-content-around w-100" style="<% 'background-color: red;' if lobby.max_players == lobby.sessions.where(active: true).count %>">
+      <div class="d-flex lobby-name-holder w-25">
+
+
+
+
+
+      </div>
+      <div class="text-left w-25">
+
+      </div>
+
+      <div class="lobbymode text-center w-25 text-truncate casualclass <%= 'competitiveclass' if lobby.competitive? == true %>">
+        <%= (lobby.competitive? ? 'Competitive' : 'Casual') %>
+      </div>
+
+      <div class="d-flex lobby-info-holder align-items-center justify-content-end numberholder">
+        <p class="lobby-players "><%= lobby.sessions.where(active: true).count %>/<%= lobby.max_players ? lobby.max_players : "??" %></p>
+        <i class="fas fa-user-alt"></i>
+      </div>
+    </div>
+    <hr>
+    <% end %>
+  </li>
   <% end %>
+</div>
 </div>
