@@ -77,7 +77,8 @@ ActiveRecord::Schema.define(version: 2019_06_12_140235) do
     t.datetime "updated_at", null: false
     t.string "name"
     t.string "nickname"
-    t.string "photo"
+    t.string "profile_pic"
+    t.string "banner_pic"
     t.string "banner_img"
     t.string "avatar"
     t.boolean "admin", default: false
