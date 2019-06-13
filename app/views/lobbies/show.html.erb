@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container custom-container-lobby mt-5">
   <div class="row my-2">
     <div class="col-6">
       <p class="text-truncate w-100"><%= @lobby.description %></p>
@@ -62,11 +62,10 @@
   </div>
 </div>
 
-<div id="videos">
-  <div id="subscriber">|THE ENEMY'S CAMERA|</div>
-  <div id="publisher"><%= current_user.email %>'s Camera |YOU|</div>
-</div>
-
+  <div id="videos">
+    <div id="subscriber"></div>
+    <div id="publisher"></div>
+  </div>
 <% content_for :after_js do %>
   <script>
     // const scrollLastMessageIntoView = () => {
