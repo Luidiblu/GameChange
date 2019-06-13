@@ -12,34 +12,67 @@
         justify-content: center;
         background-color: #29789f;
         margin: 0;
+        font-weight: bold;
       }
 
       .error-404-page {
         width: 100vw;
         display: flex;
-        justify-content: space-between;
+        justify-content: space-around;
         align-items: center;
-        border: red solid;
+        /*border: red solid;*/
       }
 
       .error-404-page img {
-        height: 75vh;
+        height: 90vh;
         object-fit: cover;
       }
 
       .dialog {
-        margin: 0 2rem;
+        border: 2px #CDCBCC solid;
+        padding: 1rem;
+        border-radius: 5px;
+        color: #CDCBCC;
+        text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        background-color: #1F1F1F;
+        width: 500px;
       }
 
       .dialog h1 {
         font-family: 'Sunflower', sans-serif;
         text-align: center;
+        font-size: 5rem;
+      }
+
+      .dialog h2 {
+        font-family: 'Sunflower', sans-serif;
+        text-align: center;
+        font-size: 3rem;
       }
 
 
       .dialog p {
         font-family: 'Mitr', sans-serif;
         text-align: center;
+        word-break: break-word;
+      }
+
+      .links {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+      }
+
+      .links a {
+        border: 2px #ED1E24 solid;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #CDCBCC;
+        padding: 10px 15px;
+        width: 100%;
+        text-align: center;
+        font-family: 'Sunflower', sans-serif;
       }
     </style>
   </head>
@@ -48,14 +81,19 @@
     <!-- This file lives in public/404.html -->
     <div class="error-404-page">
       <div class="glados">
-        <img src="file:///home/ricardo/Downloads/8-bit-Glad.png">
+        <img src="https://i.imgur.com/ygyO95h.jpg">
       </div>
       <div class="dialog">
         <div>
-          <h1>This page is a lie</h1>
-          <p>You may have mistyped the address or the page may have moved.</p>
+          <h1>4 0 4</h1>
+          <h2>This page is a lie</h2>
+          <p>
+            You may have gotten something wrong on your way here, or perhaps you're just that lost. Or, maybe, there should've been something here and yet, you still found nothing, so with that I ask you...
+          </p>
         </div>
-        <p>If you are the application owner check the logs for more information.</p>
+        <div class="links">
+          <a href="https://www.teewee.fun">Let's start over, shall we?</a>
+        </div>
       </div>
     </div>
   </body>
