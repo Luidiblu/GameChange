@@ -5,16 +5,14 @@
     <%= link_to "Configurations", edit_user_registration_path(current_user), class: "dropdown-item" %>
     <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
   </div>
-  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-    Welcome
-  </a>
-</li>
+
+
   <% if current_user.avatar.file.nil? %>
     <%= cl_image_tag "avatarsample.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
   <% else %>
     <%= cl_image_tag current_user.avatar, class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
   <% end %>
-
+</li>
 <% else %>
   <li class="nav-item">
     <%= link_to "Login", new_user_session_path, class: "navbar-login" %>
