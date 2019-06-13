@@ -2,6 +2,7 @@ class GamesController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
   before_action :set_game, only: %i[show edit update destroy]
 
+
   def index
     if params[:query].present?
       @games = Game.search_by_name("%#{params[:query]}%")

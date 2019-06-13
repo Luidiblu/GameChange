@@ -1,27 +1,117 @@
-.game_banner_show {
+// Styling for the masthead
+header.masthead {
+  // TIP: Background images are set within the HTML using inline CSS!
+  margin-bottom: 50px;
+  background: no-repeat center center;
+  background-color: $gray-600;
+  background-attachment: scroll;
   background-size: cover;
-  background-position: center;
-}
-
-
- .game_banner_show {
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-  width: 100%;
-  height: 50vh;
-  padding: 180px 0px;
- }
-
-@media (min-width: 992px) {
-  .game_banner_show h1 {
-    margin: 0;
+  position: relative;
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: $gray-900;
+    opacity: 0.5;
+  }
+  .page-heading,
+  .post-heading,
+  .site-heading {
+    padding: 200px 0 150px;
     color: white;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-    font-size: 5rem;
-    font-weight: bold;
+    @media only screen and (min-width: 768px) {
+      padding: 200px 0;
+    }
+  }
+  .page-heading,
+  .site-heading {
+    text-align: center;
+    h1 {
+      font-size: 50px;
+      margin-top: 0;
+    }
+    .subheading {
+      font-size: 24px;
+      font-weight: 300;
+      line-height: 1.1;
+      display: block;
+      margin: 10px 0 0;
+    }
+    @media only screen and (min-width: 768px) {
+      h1 {
+        font-size: 80px;
+      }
+    }
+  }
+  .post-heading {
+    h1 {
+      font-size: 35px;
+    }
+    .meta,
+    .subheading {
+      line-height: 1.1;
+      display: block;
+    }
+    .subheading {
+      font-size: 24px;
+      font-weight: 600;
+      margin: 10px 0 30px;
+
+    }
+    .meta {
+      font-size: 20px;
+      font-weight: 300;
+      font-style: italic;
+      a {
+        color: $white;
+      }
+    }
+    @media only screen and (min-width: 768px) {
+      h1 {
+        font-size: 55px;
+      }
+      .subheading {
+        font-size: 30px;
+      }
+    }
   }
 }
+.fa-user-alt {
+  color: #607B7D;
+}
+
+.fas #favorite-star{
+  cursor: pointer;
+}
+
+.fas:hover {
+  color: darkblue;
+}
+.far:hover {
+  color: darkblue;
+}
+
+
+ // .game_banner_show {
+ //  background-size: cover;
+ //  background-position: center;
+ //  text-align: center;
+ //  width: 100%;
+ //  height: 100%;
+ //  padding: 180px 0px;
+ // }
+
+// @media (min-width: 992px) {
+  // .game_banner_show h1 {
+    // margin: 0;
+    // color: white;
+    // text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    // font-size: 5rem;
+    // font-weight: bold;
+  // }
+// }
 
 @media (max-width: 992px) {
   .game_banner_show h1 {
@@ -33,38 +123,38 @@
   }
 }
 
+//
+// .lobby-name {
+//   color: white;
+//   font-weight: bold;
+//   margin-left: 10px;
+//   text-decoration: none;
+//   margin-bottom: 0px;
+//   text-align: auto;
+//   font-size: 15px;
+// }
 
-.lobby-name {
-  color: white;
-  font-weight: bold;
-  margin-left: 10px;
-  text-decoration: none;
-  margin-bottom: 0px;
-  text-align: auto;
-  font-size: 15px;
-}
+// .lobby-user {
+//   color: white;
+//   font-weight: bold;
+//   margin-left: 10px;
+//   text-decoration: none;
+//   margin-bottom: 0px;
+//   font-size: 14px;
+// }
 
-.lobby-user {
-  color: white;
-  font-weight: bold;
-  margin-left: 10px;
-  text-decoration: none;
-  margin-bottom: 0px;
-  font-size: 14px;
-}
+// .lobby-players {
+//   color: white;
+//   font-weight: bold;
+//   margin-right: 5px;
+//   text-decoration: none;
+//   margin-bottom: auto;
+//   width: auto;
+// }
 
-.lobby-players {
-  color: white;
-  font-weight: bold;
-  margin-right: 5px;
-  text-decoration: none;
-  margin-bottom: auto;
-  width: auto;
-}
-
-.decoration-none {
-  text-decoration: none;
-}
+// .decoration-none {
+//   text-decoration: none;
+// }
 
 .decoration-none a:hover {
 text-decoration: none;
@@ -85,18 +175,15 @@ text-decoration: none;
   margin-bottom: -18px;
   padding: 10px;
 }
+//
+// .list-style-none {
+//   list-style-type: none;
+// }
 
-.list-style-none {
-  list-style-type: none;
-}
+// .lobby-info-holder {
+// margin-bottom: 0px;
+// }
 
-.lobby-info-holder {
-margin-bottom: 0px;
-}
-
-.fa-user-alt {
-  color: #607B7D;
-}
 
 .competitiveclass {
   color: #f25304 !important;
@@ -110,11 +197,6 @@ margin-bottom: 0px;
  .numberholder {
   width: 5%;
  }
-
-.fa-star {
-  color: #FFD700;
-  font-size: 70px;
-}
 
 .createnewlobby {
   justify-content: center;
@@ -138,4 +220,3 @@ padding-right: 10px;
   padding-left: 0px !important;
   background-color: #6c6c6d;
 }
-
