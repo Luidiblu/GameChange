@@ -14,10 +14,9 @@
   margin-bottom: 0px;
   font-size: 15px;
   margin-bottom: 10px;
-}
+  height: 45px;
+  padding-right: 30px;
 
-.lobby-gamename-show {
-  text-decoration: none;
 }
 
 .lobby-playersnumber-show {
@@ -50,5 +49,11 @@
 
 .lobbyavaliable {
   color: black;
+}
+
+@media (min-width: 1200px) {
+  .custom-container-lobby {
+   max-width: 1860px;
+  }
 }
 

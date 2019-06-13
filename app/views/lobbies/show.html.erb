@@ -1,4 +1,4 @@
-<div class="container mt-5">
+<div class="container custom-container-lobby mt-5">
   <div class="row my-2">
     <div class="col-6">
       <p class="text-truncate w-100"><%= @lobby.description %></p>
@@ -17,6 +17,7 @@
         <div class="d-flex align-items-center">
           <div class="card">
             <%= image_tag(@lobby.game.photo, class: "card-img") %>
+
           </div>
         </div>
 
@@ -33,18 +34,24 @@
       </div>
     </div>
 
-    <div class="col-3 col-lg-3">
+    <div class="d-flex col-3 col-lg-3">
       <% @lobby.sessions.select(&:active?).each do |active_session| %>
-        <%= link_to profile_path(active_session.user) do %>
+        <%= link_to profile_path(active_session.user), style:"height: 45px" do %>
         <div class="shadow avatarplayercard text-truncate lobby-gamename-show <%= 'border border-warning' if active_session.user == @owner %>">
 
           <%= cl_image_tag(active_session.user.avatar.file.nil? ? "avatarsample.png" : active_session.user.avatar , class: "avatar") %>
 
           <%= active_session.user.nickname %>
         </div>
+
         <% end %>
+        <div id="videos">
+          <div id="subscriber"></div>
+          <div id="publisher"></div>
+        </div>
+      </div>
       <% end %>
-    </div>
+
 
     <div class="col-9 col-lg-6">
   <div class="messages">
@@ -62,10 +69,7 @@
   </div>
 </div>
 
-<div id="videos">
-  <div id="subscriber">|THE ENEMY'S CAMERA|</div>
-  <div id="publisher"><%= current_user.email %>'s Camera |YOU|</div>
-</div>
+
 
 <% content_for :after_js do %>
   <script>
@@ -122,6 +126,12 @@
         videoSource: null,
       }, handleError);
 
+      // function resizePublisher() {
+      //   var publisher = document.getElementById("publisher")
+      //   publisherContainer.style.width = "50px";
+      //   publisherContainer.style.height = "50px";
+
+      // }
       // connect to the session
 
       session.connect(token, function(error) {
