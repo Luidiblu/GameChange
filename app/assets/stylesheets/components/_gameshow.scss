@@ -5,6 +5,7 @@ header.masthead {
   background: no-repeat center center;
   background-color: $gray-600;
   background-attachment: scroll;
+  background-size: cover;
   position: relative;
   .overlay {
     position: absolute;
@@ -77,7 +78,20 @@ header.masthead {
     }
   }
 }
+.fa-user-alt {
+  color: #607B7D;
+}
 
+.fas #favorite-star{
+  cursor: pointer;
+}
+
+.fas:hover {
+  color: darkblue;
+}
+.far:hover {
+  color: darkblue;
+}
 
 
  // .game_banner_show {
@@ -109,38 +123,38 @@ header.masthead {
   }
 }
 
+//
+// .lobby-name {
+//   color: white;
+//   font-weight: bold;
+//   margin-left: 10px;
+//   text-decoration: none;
+//   margin-bottom: 0px;
+//   text-align: auto;
+//   font-size: 15px;
+// }
 
-.lobby-name {
-  color: white;
-  font-weight: bold;
-  margin-left: 10px;
-  text-decoration: none;
-  margin-bottom: 0px;
-  text-align: auto;
-  font-size: 15px;
-}
+// .lobby-user {
+//   color: white;
+//   font-weight: bold;
+//   margin-left: 10px;
+//   text-decoration: none;
+//   margin-bottom: 0px;
+//   font-size: 14px;
+// }
 
-.lobby-user {
-  color: white;
-  font-weight: bold;
-  margin-left: 10px;
-  text-decoration: none;
-  margin-bottom: 0px;
-  font-size: 14px;
-}
+// .lobby-players {
+//   color: white;
+//   font-weight: bold;
+//   margin-right: 5px;
+//   text-decoration: none;
+//   margin-bottom: auto;
+//   width: auto;
+// }
 
-.lobby-players {
-  color: white;
-  font-weight: bold;
-  margin-right: 5px;
-  text-decoration: none;
-  margin-bottom: auto;
-  width: auto;
-}
-
-.decoration-none {
-  text-decoration: none;
-}
+// .decoration-none {
+//   text-decoration: none;
+// }
 
 .decoration-none a:hover {
 text-decoration: none;
@@ -161,18 +175,15 @@ text-decoration: none;
   margin-bottom: -18px;
   padding: 10px;
 }
+//
+// .list-style-none {
+//   list-style-type: none;
+// }
 
-.list-style-none {
-  list-style-type: none;
-}
+// .lobby-info-holder {
+// margin-bottom: 0px;
+// }
 
-.lobby-info-holder {
-margin-bottom: 0px;
-}
-
-.fa-user-alt {
-  color: #607B7D;
-}
 
 .competitiveclass {
   color: #f25304 !important;
@@ -186,11 +197,6 @@ margin-bottom: 0px;
  .numberholder {
   width: 5%;
  }
-
-.fa-star {
-  color: #FFD700;
-  font-size: 70px;
-}
 
 .createnewlobby {
   justify-content: center;

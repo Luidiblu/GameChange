@@ -1,8 +1,9 @@
 .navbar-custom {
   justify-content: space-between;
   // padding-top: 1rem;
-   // padding-bottom: 1rem;
-  background-color: fade-out(#27272B, 0.3);
+  // padding-bottom: 1rem;
+  background-color: #323232;
+  // background-color: fade-out(#27272B, 0.3);
 
   .navbar-brand {
     text-transform: uppercase;
@@ -30,8 +31,8 @@
   max-width: 70%;
   overflow: visible;
   font-weight: 200;
-  padding-top: 0;
-  padding-bottom: 0;
+  // padding-top: 0;
+  // padding-bottom: 0;
 }
 // .navbar.navbar-brand img {
 //   width: 100%;
@@ -44,8 +45,16 @@
 // //
 
 .navbar-brand img:hover {
-  width: 55px;
+
    transform: rotateY(180deg);
+   display: block;
+   text-align: right;
+   max-height: 55px;
+   max-width: 70%;
+   overflow: visible;
+   font-weight: 200;
+   padding-top: 0;
+   padding-bottom: 0;
 }
 
 
@@ -54,9 +63,9 @@
   color: #EBE9E9;
   border: 1.5px solid hsla(0,0%,100%,.8);
 }
-// .navbar {
-//   padding: 0rem 3rem;
-// }
+.navbar {
+  padding: 0rem 3rem;
+}
 //
 // .navbar-lewagon {
 //   justify-content: space-between;
