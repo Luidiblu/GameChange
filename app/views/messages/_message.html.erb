@@ -1,3 +1,4 @@
+<p id="par" class="text-truncate <%= user_is_messages_author ? 'right' : '' %>"><%= message.user.nickname %></p>
 <div class="message <%= user_is_messages_author ? 'right' : '' %>">
   <%= cl_image_tag(message.user.avatar.file.nil? ? "avatarsample.png" : message.user.avatar , class: "avatar mx-3") %>
 

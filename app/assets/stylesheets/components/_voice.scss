@@ -1,5 +1,8 @@
 .OT_publisher, .OT_subscriber {
-  margin: 10rem !important;
+  max-width: 35px !important;
+  max-height: 35px !important;
+  border-radius: 100px;
+  margin: 0 0 10px 10px !important;
 }
 
 .OT_video-poster {
