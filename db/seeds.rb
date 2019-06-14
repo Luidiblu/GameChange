@@ -52,19 +52,12 @@ lol = Game.new(
 )
 record_new(lol)
 
-gta = Game.new(
-  name: "Grand Theft Auto V",
-  photo: "https://s3.gaming-cdn.com/images/products/4211/orig/grand-theft-auto-v-premium-online-edition-cover.jpg"
-  # banner: "https://i.imgur.com/XnLkFVa.jpg"
-)
-record_new(gta)
-
-ass = Game.new(
-  name: 'Assassins Creed III',
-  photo: 'https://http2.mlstatic.com/assassins-creed-iii-remastered-midia-fisica-pc-dvd-D_NQ_NP_998247-MLB29758883631_032019-F.jpg'
+terraria = Game.new(
+  name: 'Terraria',
+  photo: 'https://fsb.zobj.net/crop.php?r=M7LlzAXvAn5y_ybb_zZJtAXHRM-v4KNa4fmq2UuWBVf1jZPHzZToTiZS-EaA8EflBHD9uAUrewpwoGI7G2F40By3pHtpul33AsvUH61_sZYlWoy45jBl-uvfdsO25TFH2yzvhOyribowOQeu'
   # banner: "https://images8.alphacoders.com/990/990551.jpg"
 )
-record_new(ass)
+record_new(terraria)
 
 over = Game.new(
   name: 'Overwatch',
@@ -135,6 +128,83 @@ factorio = Game.new(
   # banner: "https://images8.alphacoders.com/990/990551.jpg"
 )
 record_new(factorio)
+
+pubg = Game.new(
+  name: "Playerunknown's Battlegrounds",
+  photo: 'https://upload.wikimedia.org/wikipedia/pt/6/60/PlayerUnknown%E2%80%99s_Battlegrounds_cover.jpg'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(pubg)
+
+cs = Game.new(
+  name: 'Counter-Strike Global Offensive',
+  photo: 'https://haste.net/wp-content/uploads/2017/11/Haste-csgo-cover.jpg'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(cs)
+
+fifa = Game.new(
+  name: 'Fifa 19',
+  photo: 'https://s2.gaming-cdn.com/images/products/2665/orig/fifa-19-cover.jpg'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(fifa)
+
+destiny = Game.new(
+  name: 'Destiny 2',
+  photo: 'https://s3.gaming-cdn.com/images/products/1919/271x377/destiny-2-cover.jpg'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(destiny)
+
+warframe = Game.new(
+  name: 'Warframe',
+  photo: 'https://www.mobygames.com/images/covers/l/364846-warframe-xbox-one-front-cover.png'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(warframe)
+
+garys = Game.new(
+  name: "Garry's Mod",
+  photo: "https://i.imgur.com/gj1aJJF.jpg"
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(garys)
+
+brawlhalla = Game.new(
+  name: 'Brawlhalla',
+  photo: 'https://haste.net/wp-content/uploads/2017/11/Haste-Brawlhalla-Cover.jpg'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(brawlhalla)
+
+gta = Game.new(
+  name: "Grand Theft Auto V",
+  photo: "https://s3.gaming-cdn.com/images/products/4211/orig/grand-theft-auto-v-premium-online-edition-cover.jpg"
+  # banner: "https://i.imgur.com/XnLkFVa.jpg"
+)
+record_new(gta)
+
+dst = Game.new(
+  name: "Don't Starve Together",
+  photo: 'https://images.g2a.com/newlayout/323x433/1x1x0/73734d4694f1/591211a0ae653a05e711d0bf'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(dst)
+
+broforce = Game.new(
+  name: 'Broforce',
+  photo: 'https://s1.gaming-cdn.com/images/products/1086/271x377/broforce-cover.jpg'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(broforce)
+
+ass = Game.new(
+  name: 'Assassins Creed III',
+  photo: 'https://http2.mlstatic.com/assassins-creed-iii-remastered-midia-fisica-pc-dvd-D_NQ_NP_998247-MLB29758883631_032019-F.jpg'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(ass)
 
 separate
 
