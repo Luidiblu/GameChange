@@ -16,7 +16,6 @@
             <%= image_tag(game.photo ? game.photo : "http://suiteapp.com/shopflow-1-03-0/img/no_image_available.jpeg", class: "card-img") %>
             <div class="card-body">
               <p class="card-text"><%= game.name %></p>
-              <p class="card-text"><% game.lobbies.limit(10) %></p>
             </div>
           </div>
         </div>
