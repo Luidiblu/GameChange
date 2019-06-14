@@ -52,12 +52,12 @@ lol = Game.new(
 )
 record_new(lol)
 
-ass = Game.new(
-  name: 'Assassins Creed III',
-  photo: 'https://http2.mlstatic.com/assassins-creed-iii-remastered-midia-fisica-pc-dvd-D_NQ_NP_998247-MLB29758883631_032019-F.jpg'
+terraria = Game.new(
+  name: 'Terraria',
+  photo: 'https://fsb.zobj.net/crop.php?r=M7LlzAXvAn5y_ybb_zZJtAXHRM-v4KNa4fmq2UuWBVf1jZPHzZToTiZS-EaA8EflBHD9uAUrewpwoGI7G2F40By3pHtpul33AsvUH61_sZYlWoy45jBl-uvfdsO25TFH2yzvhOyribowOQeu'
   # banner: "https://images8.alphacoders.com/990/990551.jpg"
 )
-record_new(ass)
+record_new(terraria)
 
 over = Game.new(
   name: 'Overwatch',
@@ -199,12 +199,12 @@ broforce = Game.new(
 )
 record_new(broforce)
 
-terraria = Game.new(
-  name: 'Terraria',
-  photo: 'https://fsb.zobj.net/crop.php?r=M7LlzAXvAn5y_ybb_zZJtAXHRM-v4KNa4fmq2UuWBVf1jZPHzZToTiZS-EaA8EflBHD9uAUrewpwoGI7G2F40By3pHtpul33AsvUH61_sZYlWoy45jBl-uvfdsO25TFH2yzvhOyribowOQeu'
+ass = Game.new(
+  name: 'Assassins Creed III',
+  photo: 'https://http2.mlstatic.com/assassins-creed-iii-remastered-midia-fisica-pc-dvd-D_NQ_NP_998247-MLB29758883631_032019-F.jpg'
   # banner: "https://images8.alphacoders.com/990/990551.jpg"
 )
-record_new(terraria)
+record_new(ass)
 
 separate
 
