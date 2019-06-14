@@ -7,10 +7,10 @@ class Game < ApplicationRecord
   def self.game_type_presets
     {
       'Duel (2)' => 2,
+      '2 x 2 (4)' => 4,
       'Full Team (5)' => 5,
-      'Full Match (10)' => 10,
-      '2 x 2' => 4,
-      '3 x 3' => 6
+      '3 x 3 (6)' => 6,
+      'Full Match (10)' => 10
     }
   end
 
