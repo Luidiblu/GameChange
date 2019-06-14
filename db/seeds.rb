@@ -115,6 +115,26 @@ dota = Game.new(
 )
 record_new(dota)
 
+hearthstone = Game.new(
+  name: 'Hearthstone',
+  photo: 'https://static-cdn.jtvnw.net/ttv-boxart/Hearthstone.jpg'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(hearthstone)
+
+borderlands2 = Game.new(
+  name: 'Borderlands 2',
+  photo: 'https://images-eds-ssl.xboxlive.com/image?url=8Oaj9Ryq1G1_p3lLnXlsaZgGzAie6Mnu24_PawYuDYIoH77pJ.X5Z.MqQPibUVTcVFjkF.IY54D8IdonYYcBsBHtmv3P4VSg9M0TbKyY._wPrXaf4OoVEQ3xLSloGYJS7btCHohMn5DhSeFzxioTnyuYzAggrg0LIdsvlajW8NHX39sTB2KcKzc8s0_No7pKvjQQmbKdne7rS8m8W4B8tor3T0_CG2__weT8WMYoNuM-'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(borderlands2)
+
+factorio = Game.new(
+  name: 'Factorio',
+  photo: 'https://hb.imgix.net/cb5424b775d4a6ac28320eb5b30dcc7b97963185.jpg?auto=compress,format&fit=crop&h=353&w=616&s=cf3e481fa618c41377308a1ecd902e1d'
+  # banner: "https://images8.alphacoders.com/990/990551.jpg"
+)
+record_new(factorio)
 
 separate
 
